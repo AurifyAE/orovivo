@@ -73,6 +73,11 @@ flutter:
   uses-material-design: true
   generate: true
 
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/ 
+
 flutter_gen:
   output: lib/shared/utils/ # Optional (default: lib/gen/)
   line_length: 80 # Optional (default: 80)

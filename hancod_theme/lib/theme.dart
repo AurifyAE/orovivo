@@ -35,7 +35,7 @@ class AppTheme {
   static final lightTheme = ThemeData(
     useMaterial3: false,
     fontFamily: 'Inter',
-    colorSchemeSeed: AppColors.brandViolet,
+    colorSchemeSeed: AppColors.brandGold,
     scaffoldBackgroundColor: AppColors.white,
     dialogBackgroundColor: AppColors.white,
     inputDecorationTheme: InputDecorationTheme(
