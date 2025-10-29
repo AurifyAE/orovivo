@@ -13,7 +13,7 @@
 // /// await Firebase.initializeApp(
 // ///   options: DefaultFirebaseOptions.currentPlatform,
 // /// );
-// /// ```
+// /// ```c
 // class DefaultFirebaseOptions {
 //   static FirebaseOptions get currentPlatform {
 //     if (kIsWeb) {

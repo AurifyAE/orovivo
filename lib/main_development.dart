@@ -1,6 +1,8 @@
 import 'package:app/app/app.dart';
 import 'package:app/bootstrap.dart';
 import 'package:app/env.dart';
+import 'package:app/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 // import 'package:app/firebase_options_dev.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,6 +28,9 @@ Future<void> main() async {
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // Used to remove trailing # in urls
   // ignore: prefer_const_constructors

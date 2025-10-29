@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:app/app/app.dart';
 import 'package:app/shared/shared.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -50,13 +51,12 @@ class MyObserver extends ProviderObserver {
 Future<void> bootstrap(FutureOr<App> Function() builder) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
-    // Enable on setting up of firebase project
-    // FirebaseCrashlytics.instance.recordFlutterError(details);
+    FirebaseCrashlytics.instance.recordFlutterFatalError(details);
+    FirebaseCrashlytics.instance.recordFlutterError(details);
   };
   PlatformDispatcher.instance.onError = (exception, stackTrace) {
     log(exception.toString(), stackTrace: stackTrace);
-    // Enable on setting up of firebase project
-    // FirebaseCrashlytics.instance.recordError(exception, stackTrace);
+    FirebaseCrashlytics.instance.recordError(exception, stackTrace);
     return true;
   };
   final app = await builder();
