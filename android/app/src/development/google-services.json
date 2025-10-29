@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "684404074153",
+    "project_id": "orovivo-f0652",
+    "storage_bucket": "orovivo-f0652.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684404074153:android:fb47f2ed73f37095b56bb8",
+        "android_client_info": {
+          "package_name": "com.orovivo.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXsybJfQeMVZGiZG4pFzzhGNJTEfbtkwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

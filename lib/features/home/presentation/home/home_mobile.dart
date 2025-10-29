@@ -26,7 +26,10 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
         ),
         centerTitle: false,
         actions: [
-          AppBarButton(onPressed: () {}, icon: Assets.icons.notification.svg()),
+          AppBarButton(
+            onPressed: () {},
+            icon: Assets.icons.notification.svg(),
+          ),
           const SizedBox(
             width: 10,
           ),
