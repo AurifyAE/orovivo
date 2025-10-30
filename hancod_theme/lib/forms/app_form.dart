@@ -11,14 +11,18 @@ class AppForm<T> extends StatefulWidget {
     this.validator,
     this.enabled = true,
     this.autovalidateMode,
+    this.labelSpacing = 12,
+    this.labelStyle,
   });
   final String name;
   final String? secondaryLabel;
   final String? label;
   final dynamic initialValue;
   final bool enabled;
+  final double labelSpacing;
   final String? Function(T?)? validator;
   final AutovalidateMode? autovalidateMode;
+  final TextStyle? labelStyle;
   // ignore: strict_raw_type
   final GlobalKey<FormBuilderFieldState>? fieldKey;
 
@@ -27,8 +31,8 @@ class AppForm<T> extends StatefulWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (label != null) ...[
-          Text(label!),
-          const SizedBox(height: 12),
+          Text(label!, style: labelStyle),
+          SizedBox(height: labelSpacing),
         ],
         child,
       ],

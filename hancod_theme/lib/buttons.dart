@@ -106,7 +106,7 @@ class _AppButtonState extends State<AppButton> {
             ),
             backgroundColor: WidgetStateProperty.resolveWith(
               (states) {
-                if (!widget.isEnabled) return const Color(0xFFD9D9D9);
+                if (!widget.isEnabled) return const Color(0xfff2f2f2);
                 return switch (widget.style) {
                   ButtonStyles.primary => widget.color ?? AppColors.black,
                   ButtonStyles.secondary => AppColors.white,
@@ -299,7 +299,7 @@ class _AppIconButtonState extends State<AppIconButton> {
           ),
         ButtonStyles.cancel => RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(widget.radius!),
-            side: const BorderSide(color: Color(0xffF0F6FD)),
+            side: const BorderSide(color: Color(0xfff2f2f2)),
           ),
       },
       child: Ink(
@@ -320,7 +320,7 @@ class _AppIconButtonState extends State<AppIconButton> {
                 ),
               ButtonStyles.cancel => RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(widget.radius!),
-                  side: const BorderSide(color: Color(0xffF0F6FD)),
+                  side: const BorderSide(color: Color(0xfff2f2f2)),
                 ),
             },
             foregroundColor: !widget.isEnabled
@@ -331,7 +331,7 @@ class _AppIconButtonState extends State<AppIconButton> {
                     ButtonStyles.cancel => widget.color ?? AppColors.black,
                   },
             backgroundColor: !widget.isEnabled
-                ? const Color(0xFFD9D9D9)
+                ? const Color(0xfff2f2f2)
                 : switch (widget.style) {
                     ButtonStyles.primary => widget.color ?? AppColors.black,
                     ButtonStyles.secondary => AppColors.white,

@@ -7,6 +7,8 @@ class AppTextForm<T> extends AppForm<T> {
     required super.name,
     super.label,
     super.key,
+    super.labelSpacing,
+    super.labelStyle,
     this.hintText,
     super.initialValue,
     super.fieldKey,
