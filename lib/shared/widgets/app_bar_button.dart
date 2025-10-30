@@ -51,7 +51,12 @@ class AppBarButton extends StatelessWidget {
             color: AppColors.primaryColor,
             shape: BoxShape.circle,
           ),
-          child: IconButton(onPressed: onPressed, icon: icon),
+          child: IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onPressed: onPressed,
+            icon: icon,
+          ),
         ),
       ),
     );
