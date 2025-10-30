@@ -1,3 +1,4 @@
+import 'package:app/features/auth/presentation/auth_presentation.dart';
 import 'package:app/features/deposit_withdraw_cash/deposit_withdraw_cash.dart';
 import 'package:app/shared/shared.dart';
 import 'package:flutter/cupertino.dart';
@@ -66,10 +67,8 @@ class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        name: home,
-        builder: (context, state) => const DepositWithdrawScreen(
-          transferType: TransferType.deposit,
-        ),
+        name: login,
+        builder: (context, state) => const RegistrationScreen(),
       ),
     ],
     // refreshListenable: Listenable.merge([authState]),

@@ -13,11 +13,13 @@ class AppButton extends StatefulWidget {
     required this.label,
     super.key,
     this.isLoading = false,
+    this.isEnabled = true,
     this.width = double.infinity,
     this.height,
     this.style = ButtonStyles.primary,
     this.padding,
     this.color,
+    this.radius = 10,
   });
 
   factory AppButton.icon({
@@ -26,7 +28,9 @@ class AppButton extends StatefulWidget {
     required Widget label,
     Key? key,
     bool isLoading,
+    bool isEnabled,
     double width,
+    double radius,
     ButtonStyles style,
     Color? color,
     EdgeInsetsGeometry padding,
@@ -36,11 +40,13 @@ class AppButton extends StatefulWidget {
   final VoidCallback? onPress;
   final Widget label;
   final bool isLoading;
+  final bool isEnabled;
   final double width;
   final double? height;
   final ButtonStyles style;
   final EdgeInsetsGeometry? padding;
   final Color? color;
+  final double? radius;
 
   @override
   State<AppButton> createState() => _AppButtonState();
@@ -63,7 +69,7 @@ class _AppButtonState extends State<AppButton> {
   Widget build(BuildContext context) {
     final isSmall = MediaQuery.sizeOf(context).width < 500;
     return Material(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(widget.radius!),
       child: Ink(
         child: TextButton(
           style: ButtonStyle(
@@ -74,32 +80,38 @@ class _AppButtonState extends State<AppButton> {
             shape: WidgetStateProperty.resolveWith(
               (states) => switch (widget.style) {
                 ButtonStyles.primary => RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(widget.radius!),
                   ),
                 ButtonStyles.secondary => RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(widget.radius!),
                     side: BorderSide(
                       color: widget.color ?? AppColors.black,
                     ),
                   ),
                 ButtonStyles.cancel => RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(widget.radius!),
                     side: const BorderSide(color: Color(0xffF0F6FD)),
                   ),
               },
             ),
             foregroundColor: WidgetStateProperty.resolveWith(
-              (states) => switch (widget.style) {
-                ButtonStyles.primary => AppColors.white,
-                ButtonStyles.secondary => widget.color ?? AppColors.black,
-                ButtonStyles.cancel => widget.color ?? AppColors.black,
+              (states) {
+                if (!widget.isEnabled) return AppColors.greyText;
+                return switch (widget.style) {
+                  ButtonStyles.primary => AppColors.white,
+                  ButtonStyles.secondary => widget.color ?? AppColors.black,
+                  ButtonStyles.cancel => widget.color ?? AppColors.black,
+                };
               },
             ),
             backgroundColor: WidgetStateProperty.resolveWith(
-              (states) => switch (widget.style) {
-                ButtonStyles.primary => widget.color ?? AppColors.black,
-                ButtonStyles.secondary => AppColors.white,
-                ButtonStyles.cancel => AppColors.white,
+              (states) {
+                if (!widget.isEnabled) return const Color(0xFFD9D9D9);
+                return switch (widget.style) {
+                  ButtonStyles.primary => widget.color ?? AppColors.black,
+                  ButtonStyles.secondary => AppColors.white,
+                  ButtonStyles.cancel => AppColors.white,
+                };
               },
             ),
             overlayColor: WidgetStateProperty.resolveWith(
@@ -129,7 +141,7 @@ class _AppButtonState extends State<AppButton> {
             splashFactory: InkRipple.splashFactory,
             enableFeedback: true,
           ),
-          onPressed: (widget.isLoading || !_isClickable)
+          onPressed: (widget.isLoading || !_isClickable || !widget.isEnabled)
               ? null
               : () async {
                   if (!_isClickable) return;
@@ -157,7 +169,21 @@ class _AppButtonState extends State<AppButton> {
                     color: AppColors.white,
                   ),
                 )
-              : widget.label,
+              : !widget.isEnabled
+                  ? Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.check,
+                          size: 20,
+                          color: AppColors.greyText,
+                        ),
+                        const SizedBox(width: 8),
+                        Flexible(child: widget.label),
+                      ],
+                    )
+                  : widget.label,
         ),
       ),
     );
@@ -172,9 +198,11 @@ class _AppButtonWithIcon extends AppButton {
     super.key,
     super.style,
     super.isLoading,
+    super.isEnabled,
     super.width,
     super.padding,
     super.color,
+    super.radius,
     bool? iconLeading,
   }) : super(
           label: _AppButtonWithIconChild(
@@ -222,21 +250,25 @@ class AppIconButton extends StatefulWidget {
     required this.label,
     super.key,
     this.isLoading = false,
+    this.isEnabled = true,
     this.width = double.infinity,
     this.height,
     this.style = ButtonStyles.primary,
     this.padding = const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
     this.color,
+    this.radius = 10,
   });
 
   final VoidCallback? onPress;
   final Widget label;
   final bool isLoading;
+  final bool isEnabled;
   final double width;
   final double? height;
   final ButtonStyles style;
   final EdgeInsetsGeometry padding;
   final Color? color;
+  final double? radius;
 
   @override
   State<AppIconButton> createState() => _AppIconButtonState();
@@ -257,16 +289,16 @@ class _AppIconButtonState extends State<AppIconButton> {
     return Material(
       shape: switch (widget.style) {
         ButtonStyles.primary => RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(widget.radius!),
           ),
         ButtonStyles.secondary => RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(widget.radius!),
             side: BorderSide(
               color: widget.color ?? AppColors.black,
             ),
           ),
         ButtonStyles.cancel => RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(widget.radius!),
             side: const BorderSide(color: Color(0xffF0F6FD)),
           ),
       },
@@ -278,29 +310,33 @@ class _AppIconButtonState extends State<AppIconButton> {
             padding: widget.padding,
             shape: switch (widget.style) {
               ButtonStyles.primary => RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(widget.radius!),
                 ),
               ButtonStyles.secondary => RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(widget.radius!),
                   side: BorderSide(
                     color: widget.color ?? AppColors.black,
                   ),
                 ),
               ButtonStyles.cancel => RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(widget.radius!),
                   side: const BorderSide(color: Color(0xffF0F6FD)),
                 ),
             },
-            foregroundColor: switch (widget.style) {
-              ButtonStyles.primary => AppColors.white,
-              ButtonStyles.secondary => widget.color ?? AppColors.black,
-              ButtonStyles.cancel => widget.color ?? AppColors.black,
-            },
-            backgroundColor: switch (widget.style) {
-              ButtonStyles.primary => widget.color ?? AppColors.black,
-              ButtonStyles.secondary => AppColors.white,
-              ButtonStyles.cancel => AppColors.white,
-            },
+            foregroundColor: !widget.isEnabled
+                ? AppColors.greyText
+                : switch (widget.style) {
+                    ButtonStyles.primary => AppColors.white,
+                    ButtonStyles.secondary => widget.color ?? AppColors.black,
+                    ButtonStyles.cancel => widget.color ?? AppColors.black,
+                  },
+            backgroundColor: !widget.isEnabled
+                ? const Color(0xFFD9D9D9)
+                : switch (widget.style) {
+                    ButtonStyles.primary => widget.color ?? AppColors.black,
+                    ButtonStyles.secondary => AppColors.white,
+                    ButtonStyles.cancel => AppColors.white,
+                  },
             overlayColor: switch (widget.style) {
               ButtonStyles.primary => AppColors.black.withValues(alpha: 0.05),
               ButtonStyles.secondary =>
@@ -316,7 +352,7 @@ class _AppIconButtonState extends State<AppIconButton> {
                 AppColors.black.withValues(alpha: 0.05),
             },
           ),
-          onPressed: (widget.isLoading || !_isClickable)
+          onPressed: (widget.isLoading || !_isClickable || !widget.isEnabled)
               ? null
               : () async {
                   if (!_isClickable) return;
@@ -344,7 +380,21 @@ class _AppIconButtonState extends State<AppIconButton> {
                     color: AppColors.white,
                   ),
                 )
-              : widget.label,
+              : !widget.isEnabled
+                  ? Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.check,
+                          size: 20,
+                          color: AppColors.greyText,
+                        ),
+                        const SizedBox(width: 8),
+                        Flexible(child: widget.label),
+                      ],
+                    )
+                  : widget.label,
         ),
       ),
     );

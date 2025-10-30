@@ -1,0 +1,55 @@
+<svg width="375" height="812" viewBox="0 0 375 812" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_225_3437)">
+<rect width="375" height="812" fill="#FAFAFA"/>
+<g opacity="0.1">
+<g clip-path="url(#clip1_225_3437)">
+<path d="M23.7544 -27V835.987" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M65.6411 -27V835.987" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M107.528 -27V835.987" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M149.415 -27V835.987" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M191.302 -27V835.987" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M233.188 -27V835.987" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M275.075 -27V835.987" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M316.962 -27V835.987" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M358.849 -27V835.987" stroke="#8C8C8C" stroke-width="0.654481"/>
+</g>
+<g clip-path="url(#clip2_225_3437)">
+<path d="M-437 14.8867L811.184 14.8867" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 56.7734L811.184 56.7734" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 98.6602L811.184 98.6602" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 140.547L811.184 140.547" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 182.434L811.184 182.434" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 224.321L811.184 224.321" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 266.208L811.184 266.208" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 308.094L811.184 308.094" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 349.981L811.184 349.981" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 391.868L811.184 391.868" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 433.754L811.184 433.754" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 475.641L811.184 475.641" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 517.528L811.184 517.528" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 559.415L811.184 559.415" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 601.301L811.184 601.301" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 643.188L811.184 643.188" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 685.075L811.184 685.075" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 726.962L811.184 726.962" stroke="#8C8C8C" stroke-width="0.654481"/>
+<path d="M-437 768.849L811.184 768.849" stroke="#8C8C8C" stroke-width="0.654481"/>
+</g>
+</g>
+<path d="M188 210.5C537.411 210.5 820.5 445.634 820.5 735.5C820.5 1025.37 537.411 1260.5 188 1260.5C-161.411 1260.5 -444.5 1025.37 -444.5 735.5C-444.5 445.634 -161.411 210.5 188 210.5Z" fill="#F2F2F2" stroke="url(#paint0_linear_225_3437)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_225_3437" x1="32.5" y1="210" x2="199.5" y2="210" gradientUnits="userSpaceOnUse">
+<stop stop-color="#825B04" stop-opacity="0.25"/>
+<stop offset="1" stop-color="#F2F2F2"/>
+</linearGradient>
+<clipPath id="clip0_225_3437">
+<rect width="375" height="812" fill="white"/>
+</clipPath>
+<clipPath id="clip1_225_3437">
+<rect width="1248.18" height="806.841" fill="white" transform="translate(-437 -27)"/>
+</clipPath>
+<clipPath id="clip2_225_3437">
+<rect width="1248.18" height="806.841" fill="white" transform="translate(-437 -27)"/>
+</clipPath>
+</defs>
+</svg>
