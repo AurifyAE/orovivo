@@ -9,11 +9,11 @@ class NoTransitionsOnWeb extends PageTransitionsTheme {
 
   @override
   Widget buildTransitions<T>(
-    route,
-    context,
-    animation,
-    secondaryAnimation,
-    child,
+    PageRoute<T> route,
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
   ) {
     if (kIsWeb) {
       return child;
@@ -36,8 +36,7 @@ class AppTheme {
     useMaterial3: false,
     fontFamily: 'Inter',
     colorSchemeSeed: AppColors.brandGold,
-    scaffoldBackgroundColor: AppColors.white,
-    dialogBackgroundColor: AppColors.white,
+    scaffoldBackgroundColor: const Color(0xFFF2F2F2),
     inputDecorationTheme: InputDecorationTheme(
       enabledBorder: _inputBorder.copyWith(
         borderSide: const BorderSide(color: AppColors.textfieldOutline),
@@ -77,6 +76,7 @@ class AppTheme {
       ),
     ),
     pageTransitionsTheme: const NoTransitionsOnWeb(),
+    dialogTheme: const DialogThemeData(backgroundColor: AppColors.white),
   );
   static final darkTheme = ThemeData(
     useMaterial3: false,
@@ -87,7 +87,8 @@ class AppTheme {
     borderRadius: BorderRadius.all(Radius.circular(textFieldBorderRadius)),
   );
 
-  static Brightness get currentSystemBrightness => PlatformDispatcher.instance.platformBrightness;
+  static Brightness get currentSystemBrightness =>
+      PlatformDispatcher.instance.platformBrightness;
 
   static void setStatusBarAndNavigationBarColors() {
     SystemChrome.setSystemUIOverlayStyle(

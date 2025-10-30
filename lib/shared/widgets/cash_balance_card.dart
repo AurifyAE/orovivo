@@ -19,7 +19,7 @@ class CashBalanceCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.15),
+            color: Colors.black.withValues(alpha: 0.15),
             blurRadius: 10,
             offset: const Offset(0, 6),
           ),
@@ -34,7 +34,11 @@ class CashBalanceCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Assets.images.chip.svg(),
-              Assets.images.appName.svg(color: AppColors.white, width: 80),
+              Assets.images.appName.svg(
+                colorFilter:
+                    const ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+                width: 80,
+              ),
             ],
           ),
           Expanded(
@@ -88,7 +92,7 @@ class CashBalanceCard extends StatelessWidget {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.05),
+                        color: Colors.white.withValues(alpha: 0.05),
                         shape: BoxShape.circle,
                       ),
                       padding: const EdgeInsets.all(10),
@@ -97,7 +101,7 @@ class CashBalanceCard extends StatelessWidget {
                     const SizedBox(width: 10),
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.05),
+                        color: Colors.white.withValues(alpha: 0.05),
                         shape: BoxShape.circle,
                       ),
                       padding: const EdgeInsets.all(10),

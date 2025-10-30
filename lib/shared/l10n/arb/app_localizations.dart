@@ -140,6 +140,18 @@ abstract class AppLocalizations {
   /// **'Primary'**
   String get primary;
 
+  /// No description provided for @requestDeposit.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Deposit'**
+  String get requestDeposit;
+
+  /// No description provided for @requestWithdraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Withdraw'**
+  String get requestWithdraw;
+
   /// No description provided for @secondary.
   ///
   /// In en, this message translates to:

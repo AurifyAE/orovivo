@@ -1,4 +1,4 @@
-import 'package:app/features/home/home.dart';
+import 'package:app/features/deposit_withdraw_cash/deposit_withdraw_cash.dart';
 import 'package:app/shared/shared.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +67,9 @@ class AppRouter {
       GoRoute(
         path: '/',
         name: home,
-        builder: (context, state) => const HomeScreen(),
+        builder: (context, state) => const DepositWithdrawScreen(
+          transferType: TransferType.deposit,
+        ),
       ),
     ],
     // refreshListenable: Listenable.merge([authState]),
