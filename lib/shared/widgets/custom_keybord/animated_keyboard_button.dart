@@ -65,13 +65,13 @@ class _AnimatedKeyboardButtonState extends State<AnimatedKeyboardButton>
             decoration: BoxDecoration(
               color: const Color(0xFFF3F3F3),
               borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.black.withValues(alpha: 0.05),
-                  blurRadius: 6,
-                  offset: const Offset(0, 2),
-                ),
-              ],
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: AppColors.black.withValues(alpha: 0.05),
+              //     blurRadius: 6,
+              //     offset: const Offset(0, 2),
+              //   ),
+              // ],
             ),
             child: Center(
               child: widget.isIcon
