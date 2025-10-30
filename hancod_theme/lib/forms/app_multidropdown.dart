@@ -25,10 +25,12 @@ class AppMultiSelectDropdownForm<T extends Object> extends AppForm<T> {
   final InputDecoration decoration;
 
   @override
-  State<AppMultiSelectDropdownForm<T>> createState() => _AppMultiSelectDropdownFormState();
+  State<AppMultiSelectDropdownForm<T>> createState() =>
+      _AppMultiSelectDropdownFormState();
 }
 
-class _AppMultiSelectDropdownFormState<T extends Object> extends State<AppMultiSelectDropdownForm<T>> {
+class _AppMultiSelectDropdownFormState<T extends Object>
+    extends State<AppMultiSelectDropdownForm<T>> {
   late GlobalKey<FormBuilderFieldState> _key;
   late MultiSelectController<T> _controller;
   @override

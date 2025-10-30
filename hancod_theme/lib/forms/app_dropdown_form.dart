@@ -2,7 +2,7 @@
 part of '../forms.dart';
 
 class AppDropDownForm<T> extends AppForm<T> {
-  AppDropDownForm({
+  const AppDropDownForm({
     required super.name,
     required super.label,
     required this.items,
@@ -17,7 +17,7 @@ class AppDropDownForm<T> extends AppForm<T> {
     this.showCloseButton = false,
     this.onClear,
     this.decoration = const InputDecoration(),
-    this.sufixIcon=true
+    this.sufixIcon = true,
   });
   final void Function(T?)? onChanged;
   final List<DropDownItems<T>>? items;
@@ -65,21 +65,23 @@ class _AppDropDownFormState<T> extends State<AppDropDownForm<T>> {
                   icon: const SizedBox(),
                   value: field.value as T?,
                   decoration: widget.decoration.copyWith(
-                    suffixIcon:widget.sufixIcon? Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(Icons.keyboard_arrow_down_rounded),
-                        if (field.value != null && widget.showCloseButton)
-                          IconButton(
-                            iconSize: 20,
-                            icon: const Icon(Icons.close),
-                            onPressed: () {
-                              field.didChange(null);
-                              widget.onClear?.call();
-                            },
-                          ),
-                      ],
-                    ):null,
+                    suffixIcon: widget.sufixIcon
+                        ? Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(Icons.keyboard_arrow_down_rounded),
+                              if (field.value != null && widget.showCloseButton)
+                                IconButton(
+                                  iconSize: 20,
+                                  icon: const Icon(Icons.close),
+                                  onPressed: () {
+                                    field.didChange(null);
+                                    widget.onClear?.call();
+                                  },
+                                ),
+                            ],
+                          )
+                        : null,
                   ),
                   validator: widget.validator,
                   menuMaxHeight: 500,

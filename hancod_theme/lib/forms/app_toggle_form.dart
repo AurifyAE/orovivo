@@ -48,7 +48,8 @@ class _AppToggleFormState extends State<AppToggleForm> {
               mainAxisAlignment: widget.mainAxisAlignment,
               crossAxisAlignment: widget.crossAxisAlignment,
               children: [
-                if (widget.hint != null) Text(widget.hint!, style: widget.hintStyle ?? AppText.largeM),
+                if (widget.hint != null)
+                  Text(widget.hint!, style: widget.hintStyle ?? AppText.largeM),
                 SizedBox(
                   height: 30,
                   width: 42,
@@ -57,8 +58,9 @@ class _AppToggleFormState extends State<AppToggleForm> {
                     scale: .6,
                     child: CupertinoSwitch(
                       thumbColor: AppColors.white,
-                      activeColor: widget.activeColor ?? AppColors.primaryColor,
-                      trackColor: AppColors.stormyBlue,
+                      activeTrackColor:
+                          widget.activeColor ?? AppColors.primaryColor,
+                      inactiveTrackColor: AppColors.stormyBlue,
                       value: field.value ?? false,
                       onChanged: (value) {
                         field.didChange(value);

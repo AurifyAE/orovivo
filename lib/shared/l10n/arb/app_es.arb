@@ -10,6 +10,8 @@
   "helloHancod": "Hello Hancod!",
   "phoneNo": "Phone No.",
   "primary": "Primary",
+  "requestDeposit": "Request Deposit",
+  "requestWithdraw": "Request Withdraw",
   "secondary": "Secondary",
   "somethingWentWrong": "Something went wrong. Try refreshing the page or checking your internet connection. We'll see you in a moment!",
   "textForm": "Text form"
