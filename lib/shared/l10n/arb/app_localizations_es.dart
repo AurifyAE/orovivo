@@ -30,6 +30,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get primary => 'Primary';
 
   @override
+  String get requestDeposit => 'Request Deposit';
+
+  @override
+  String get requestWithdraw => 'Request Withdraw';
+
+  @override
   String get secondary => 'Secondary';
 
   @override
