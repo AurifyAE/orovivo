@@ -1,3 +1,4 @@
+import 'package:app/shared/utils/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hancod_theme/hancod_theme.dart';
@@ -17,10 +18,15 @@ class CustomAppBar extends PreferredSize {
             kToolbarHeight + (bottomHeight ?? 0),
           ),
           child: Container(
-            decoration: const BoxDecoration(
+
+            decoration: BoxDecoration(    
               color: AppColors.primaryColor,
-            ),
-            child: AppBar(
+              image: DecorationImage( 
+                image: AssetImage(Assets.images.appbarBg.path),     
+                fit: BoxFit.cover, // makes it fill nicely
+              ),
+            ), 
+            child: AppBar( 
               bottom: bottom != null
                   ? PreferredSize(
                       preferredSize:
@@ -28,7 +34,8 @@ class CustomAppBar extends PreferredSize {
                       child: bottom,
                     )
                   : null,
-              backgroundColor: AppColors.primaryColor,
+              backgroundColor: Colors.transparent,         
+
               title: title,
               centerTitle: centerTitle,
               actions: actions,

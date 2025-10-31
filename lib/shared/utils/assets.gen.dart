@@ -34,6 +34,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/branch.svg
   SvgGenImage get branch => const SvgGenImage('assets/icons/branch.svg');
 
+  /// File path: assets/icons/branch_filled.svg
+  SvgGenImage get branchFilled =>
+      const SvgGenImage('assets/icons/branch_filled.svg');
+
   /// File path: assets/icons/buy.svg
   SvgGenImage get buy => const SvgGenImage('assets/icons/buy.svg');
 
@@ -95,8 +99,13 @@ class $AssetsIconsGen {
   /// File path: assets/icons/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/icons/filter.svg');
 
+
   /// File path: assets/icons/gallery.svg
   SvgGenImage get gallery => const SvgGenImage('assets/icons/gallery.svg');
+
+  /// File path: assets/icons/float_btn.svg
+  SvgGenImage get floatBtn => const SvgGenImage('assets/icons/float_btn.svg');
+
 
   /// File path: assets/icons/help_and_support.svg
   SvgGenImage get helpAndSupport =>
@@ -107,6 +116,10 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/home.svg
   SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
+
+  /// File path: assets/icons/home_filled.svg
+  SvgGenImage get homeFilled =>
+      const SvgGenImage('assets/icons/home_filled.svg');
 
   /// File path: assets/icons/income.svg
   SvgGenImage get income => const SvgGenImage('assets/icons/income.svg');
@@ -137,6 +150,10 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/more.svg
   SvgGenImage get more => const SvgGenImage('assets/icons/more.svg');
+
+  /// File path: assets/icons/more_filled.svg
+  SvgGenImage get moreFilled =>
+      const SvgGenImage('assets/icons/more_filled.svg');
 
   /// File path: assets/icons/nationality.svg
   SvgGenImage get nationality =>
@@ -176,6 +193,10 @@ class $AssetsIconsGen {
   SvgGenImage get transaction =>
       const SvgGenImage('assets/icons/transaction.svg');
 
+  /// File path: assets/icons/transaction_filled.svg
+  SvgGenImage get transactionFilled =>
+      const SvgGenImage('assets/icons/transaction_filled.svg');
+
   /// File path: assets/icons/withdraw.svg
   SvgGenImage get withdraw => const SvgGenImage('assets/icons/withdraw.svg');
 
@@ -191,6 +212,7 @@ class $AssetsIconsGen {
     backArrow,
     bank,
     branch,
+    branchFilled,
     buy,
     calendar,
     camera,
@@ -209,10 +231,15 @@ class $AssetsIconsGen {
     eyesClosed,
     eyesOpened,
     filter,
+
     gallery,
+
+    floatBtn,
+
     helpAndSupport,
     high,
     home,
+    homeFilled,
     income,
     kycProgress,
     kycRejected,
@@ -222,6 +249,7 @@ class $AssetsIconsGen {
     mail,
     moneySend,
     more,
+    moreFilled,
     nationality,
     notification,
     phone,
@@ -233,6 +261,7 @@ class $AssetsIconsGen {
     toastInfo,
     toastSuccess,
     transaction,
+    transactionFilled,
     withdraw,
     withdrawCash,
   ];
@@ -251,6 +280,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/app_name.svg
   SvgGenImage get appName => const SvgGenImage('assets/images/app_name.svg');
 
+  /// File path: assets/images/appbar_bg.png
+  AssetGenImage get appbarBg =>
+      const AssetGenImage('assets/images/appbar_bg.png');
+
   /// File path: assets/images/card_baground.png
   AssetGenImage get cardBaground =>
       const AssetGenImage('assets/images/card_baground.png');
@@ -260,6 +293,7 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/gold.svg
   SvgGenImage get gold => const SvgGenImage('assets/images/gold.svg');
+
 
   /// File path: assets/images/reg_suc_bg.png
   AssetGenImage get regSucBg =>
@@ -277,18 +311,28 @@ class $AssetsImagesGen {
   SvgGenImage get registrationSuccessBg =>
       const SvgGenImage('assets/images/registration_success_bg.svg');
 
+  /// File path: assets/images/navigation_bg.svg
+  SvgGenImage get navigationBg =>
+      const SvgGenImage('assets/images/navigation_bg.svg');
+
+
   /// List of all assets
   List<dynamic> get values => [
     appIcon,
     appIconWithName,
     appName,
+    appbarBg,
     cardBaground,
     chip,
     gold,
+
     regSucBg,
     registerBgPng,
     registerBgSvg,
     registrationSuccessBg,
+
+    navigationBg,
+
   ];
 }
 
