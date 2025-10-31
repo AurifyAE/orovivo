@@ -95,6 +95,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/float_btn.svg
   SvgGenImage get floatBtn => const SvgGenImage('assets/icons/float_btn.svg');
 
+  /// File path: assets/icons/forward_arrow.svg
+  SvgGenImage get forwardArrow =>
+      const SvgGenImage('assets/icons/forward_arrow.svg');
+
   /// File path: assets/icons/help_and_support.svg
   SvgGenImage get helpAndSupport =>
       const SvgGenImage('assets/icons/help_and_support.svg');
@@ -218,6 +222,7 @@ class $AssetsIconsGen {
     eyesOpened,
     filter,
     floatBtn,
+    forwardArrow,
     helpAndSupport,
     high,
     home,
