@@ -11,9 +11,14 @@ class CustomAppBar extends PreferredSize {
     bool? centerTitle,
     List<Widget>? actions,
     double? leadingWidth,
+    double? bottomHeight,
+    Widget? bottom,
   }) : super(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
+          preferredSize: Size.fromHeight(
+            kToolbarHeight + (bottomHeight ?? 0),
+          ),
           child: Container(
+
             decoration: BoxDecoration(    
               color: AppColors.primaryColor,
               image: DecorationImage( 
@@ -22,7 +27,15 @@ class CustomAppBar extends PreferredSize {
               ),
             ), 
             child: AppBar( 
+              bottom: bottom != null
+                  ? PreferredSize(
+                      preferredSize:
+                          Size.fromHeight(bottomHeight ?? kToolbarHeight),
+                      child: bottom,
+                    )
+                  : null,
               backgroundColor: Colors.transparent,         
+
               title: title,
               centerTitle: centerTitle,
               actions: actions,

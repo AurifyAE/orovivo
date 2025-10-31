@@ -42,6 +42,7 @@ dependencies:
   intl:
   json_annotation: ^4.9.0
   logger: ^2.5.0
+  lottie: ^3.2.0
   multi_dropdown: ^3.0.1
   path: ^1.9.1
   path_provider: ^2.1.5
@@ -79,7 +80,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    # - assets/fonts/ 
+    - assets/lottie/
+    - assets/fonts/ 
 
 flutter_gen:
   output: lib/shared/utils/ # Optional (default: lib/gen/)

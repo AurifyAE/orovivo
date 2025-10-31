@@ -1,4 +1,9 @@
 
+import 'package:app/features/auth/presentation/auth_presentation.dart';
+import 'package:app/features/deposit_withdraw_cash/deposit_withdraw_cash.dart';
+import 'package:app/features/home/presentation/home/home.dart';
+
+
 import 'package:app/features/branch/presentation/branch/branch.dart';
 import 'package:app/features/home/home.dart';
 import 'package:app/features/more/presentation/more/more.dart';
@@ -6,6 +11,7 @@ import 'package:app/features/swap/swap.dart';
 import 'package:app/features/transaction/presentation/transaction/transaction.dart';
 
 import 'package:app/features/deposit_withdraw_cash/deposit_withdraw_cash.dart';
+
 
 import 'package:app/shared/shared.dart';
 import 'package:app/shared/widgets/navigation_bar.dart';
@@ -67,16 +73,25 @@ class AppRouter {
 
   static const String home = 'home';
   static const String splash = 'splash';
+
+  //Auth Section
   static const String login = 'login';
+
+  static const String password = 'password';
+  static const String profilePicture = 'profile_picture';
+  static const String registrationSuccess = 'registration_success';
+
   static const String wallet = 'wallet'; 
   static const String transaction = 'transaction';
   static const String swap = 'swap';
   static const String branch = 'branch';
   static const String more = 'more';
 
+
   late final GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
+    initialLocation: '/$login',
     routes: [
       // GoRoute(
       //   path: '/',
@@ -86,6 +101,7 @@ class AppRouter {
        GoRoute(
         path: '/', 
         name: home,
+
 
         // Add a redirect to the first screen of your shell
         redirect: (context, state) {
@@ -259,11 +275,13 @@ class AppRouter {
           ),
         ],
 
+
       ),
     ],
     // refreshListenable: Listenable.merge([authState]),
     redirect: (context, state) {
       return null;
+      // return '/$login';
 
       /// Auth reirection flow
       /*   if (authState.value == null) {

@@ -7,6 +7,8 @@ class AppTextForm<T> extends AppForm<T> {
     required super.name,
     super.label,
     super.key,
+    super.labelSpacing,
+    super.labelStyle,
     this.hintText,
     super.initialValue,
     super.fieldKey,
@@ -94,6 +96,9 @@ class _AppTextFormState<T> extends State<AppTextForm<T>> {
         decoration: _decoration.copyWith(
           hintText: widget.hintText,
           labelText: widget.secondaryLabel,
+          labelStyle: AppText.mediumN.copyWith(
+            color: AppColors.fontLight,
+          ),
           suffixIcon: widget.enableObscureText
               ? IconButton(
                   onPressed: () {

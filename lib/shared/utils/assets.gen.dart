@@ -10,6 +10,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
+import 'package:lottie/lottie.dart' as _lottie;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
 class $AssetsIconsGen {
@@ -20,6 +21,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/add.svg
   SvgGenImage get add => const SvgGenImage('assets/icons/add.svg');
+
+  /// File path: assets/icons/avatar.svg
+  SvgGenImage get avatar => const SvgGenImage('assets/icons/avatar.svg');
 
   /// File path: assets/icons/back_arrow.svg
   SvgGenImage get backArrow => const SvgGenImage('assets/icons/back_arrow.svg');
@@ -39,6 +43,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/calendar.svg
   SvgGenImage get calendar => const SvgGenImage('assets/icons/calendar.svg');
+
+  /// File path: assets/icons/camera.svg
+  SvgGenImage get camera => const SvgGenImage('assets/icons/camera.svg');
 
   /// File path: assets/icons/card-coin.svg
   SvgGenImage get cardCoin => const SvgGenImage('assets/icons/card-coin.svg');
@@ -92,8 +99,13 @@ class $AssetsIconsGen {
   /// File path: assets/icons/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/icons/filter.svg');
 
+
+  /// File path: assets/icons/gallery.svg
+  SvgGenImage get gallery => const SvgGenImage('assets/icons/gallery.svg');
+
   /// File path: assets/icons/float_btn.svg
   SvgGenImage get floatBtn => const SvgGenImage('assets/icons/float_btn.svg');
+
 
   /// File path: assets/icons/help_and_support.svg
   SvgGenImage get helpAndSupport =>
@@ -196,12 +208,14 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [
     about,
     add,
+    avatar,
     backArrow,
     bank,
     branch,
     branchFilled,
     buy,
     calendar,
+    camera,
     cardCoin,
     caution,
     changePassword,
@@ -217,7 +231,11 @@ class $AssetsIconsGen {
     eyesClosed,
     eyesOpened,
     filter,
+
+    gallery,
+
     floatBtn,
+
     helpAndSupport,
     high,
     home,
@@ -276,9 +294,27 @@ class $AssetsImagesGen {
   /// File path: assets/images/gold.svg
   SvgGenImage get gold => const SvgGenImage('assets/images/gold.svg');
 
+
+  /// File path: assets/images/reg_suc_bg.png
+  AssetGenImage get regSucBg =>
+      const AssetGenImage('assets/images/reg_suc_bg.png');
+
+  /// File path: assets/images/register_bg.png
+  AssetGenImage get registerBgPng =>
+      const AssetGenImage('assets/images/register_bg.png');
+
+  /// File path: assets/images/register_bg.svg
+  SvgGenImage get registerBgSvg =>
+      const SvgGenImage('assets/images/register_bg.svg');
+
+  /// File path: assets/images/registration_success_bg.svg
+  SvgGenImage get registrationSuccessBg =>
+      const SvgGenImage('assets/images/registration_success_bg.svg');
+
   /// File path: assets/images/navigation_bg.svg
   SvgGenImage get navigationBg =>
       const SvgGenImage('assets/images/navigation_bg.svg');
+
 
   /// List of all assets
   List<dynamic> get values => [
@@ -289,8 +325,33 @@ class $AssetsImagesGen {
     cardBaground,
     chip,
     gold,
+
+    regSucBg,
+    registerBgPng,
+    registerBgSvg,
+    registrationSuccessBg,
+
     navigationBg,
+
   ];
+}
+
+class $AssetsLottieGen {
+  const $AssetsLottieGen();
+
+  /// File path: assets/lottie/gold.json
+  LottieGenImage get gold => const LottieGenImage('assets/lottie/gold.json');
+
+  /// File path: assets/lottie/loading.json
+  LottieGenImage get loading =>
+      const LottieGenImage('assets/lottie/loading.json');
+
+  /// File path: assets/lottie/success.json
+  LottieGenImage get success =>
+      const LottieGenImage('assets/lottie/success.json');
+
+  /// List of all assets
+  List<LottieGenImage> get values => [gold, loading, success];
 }
 
 class Assets {
@@ -298,6 +359,7 @@ class Assets {
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLottieGen lottie = $AssetsLottieGen();
 }
 
 class AssetGenImage {
@@ -434,6 +496,73 @@ class SvgGenImage {
           (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
+}
+
+class LottieGenImage {
+  const LottieGenImage(this._assetName, {this.flavors = const {}});
+
+  final String _assetName;
+  final Set<String> flavors;
+
+  _lottie.LottieBuilder lottie({
+    Animation<double>? controller,
+    bool? animate,
+    _lottie.FrameRate? frameRate,
+    bool? repeat,
+    bool? reverse,
+    _lottie.LottieDelegates? delegates,
+    _lottie.LottieOptions? options,
+    void Function(_lottie.LottieComposition)? onLoaded,
+    _lottie.LottieImageProviderFactory? imageProviderFactory,
+    Key? key,
+    AssetBundle? bundle,
+    Widget Function(BuildContext, Widget, _lottie.LottieComposition?)?
+    frameBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    double? width,
+    double? height,
+    BoxFit? fit,
+    AlignmentGeometry? alignment,
+    String? package,
+    bool? addRepaintBoundary,
+    FilterQuality? filterQuality,
+    void Function(String)? onWarning,
+    _lottie.LottieDecoder? decoder,
+    _lottie.RenderCache? renderCache,
+    bool? backgroundLoading,
+  }) {
+    return _lottie.Lottie.asset(
+      _assetName,
+      controller: controller,
+      animate: animate,
+      frameRate: frameRate,
+      repeat: repeat,
+      reverse: reverse,
+      delegates: delegates,
+      options: options,
+      onLoaded: onLoaded,
+      imageProviderFactory: imageProviderFactory,
+      key: key,
+      bundle: bundle,
+      frameBuilder: frameBuilder,
+      errorBuilder: errorBuilder,
+      width: width,
+      height: height,
+      fit: fit,
+      alignment: alignment,
+      package: package,
+      addRepaintBoundary: addRepaintBoundary,
+      filterQuality: filterQuality,
+      onWarning: onWarning,
+      decoder: decoder,
+      renderCache: renderCache,
+      backgroundLoading: backgroundLoading,
     );
   }
 
