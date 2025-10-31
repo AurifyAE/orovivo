@@ -52,7 +52,7 @@ class _AppPhoneNumberFormState extends State<AppPhoneNumberForm> {
               height: 600,
               width: 500,
             ),
-            isCountryButtonPersistent: true,
+            // isCountryButtonPersistent: true,
             countryButtonStyle: const CountryButtonStyle(
               showIsoCode: true,
               flagSize: 16,

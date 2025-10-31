@@ -68,7 +68,8 @@ class _AppButtonState extends State<AppButton> {
         child: TextButton(
           style: ButtonStyle(
             padding: WidgetStateProperty.resolveWith(
-              (states) => widget.padding ?? (isSmall ? smallPadding : largePadding),
+              (states) =>
+                  widget.padding ?? (isSmall ? smallPadding : largePadding),
             ),
             shape: WidgetStateProperty.resolveWith(
               (states) => switch (widget.style) {
@@ -78,7 +79,7 @@ class _AppButtonState extends State<AppButton> {
                 ButtonStyles.secondary => RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                     side: BorderSide(
-                      color: widget.color ?? AppColors.brandGold,
+                      color: widget.color ?? AppColors.black,
                     ),
                   ),
                 ButtonStyles.cancel => RoundedRectangleBorder(
@@ -90,22 +91,24 @@ class _AppButtonState extends State<AppButton> {
             foregroundColor: WidgetStateProperty.resolveWith(
               (states) => switch (widget.style) {
                 ButtonStyles.primary => AppColors.white,
-                ButtonStyles.secondary => widget.color ?? AppColors.brandGold,
-                ButtonStyles.cancel => widget.color ?? AppColors.brandGold,
+                ButtonStyles.secondary => widget.color ?? AppColors.black,
+                ButtonStyles.cancel => widget.color ?? AppColors.black,
               },
             ),
             backgroundColor: WidgetStateProperty.resolveWith(
               (states) => switch (widget.style) {
-                ButtonStyles.primary => widget.color ?? AppColors.brandGold,
+                ButtonStyles.primary => widget.color ?? AppColors.black,
                 ButtonStyles.secondary => AppColors.white,
                 ButtonStyles.cancel => AppColors.white,
               },
             ),
             overlayColor: WidgetStateProperty.resolveWith(
               (states) => switch (widget.style) {
-                ButtonStyles.primary => AppColors.brandGold.withOpacity(.05),
-                ButtonStyles.secondary => (widget.color ?? AppColors.brandGold).withOpacity(.05),
-                ButtonStyles.cancel => (widget.color ?? AppColors.brandGold).withOpacity(.05),
+                ButtonStyles.primary => AppColors.black.withValues(alpha: 0.05),
+                ButtonStyles.secondary =>
+                  (widget.color ?? AppColors.black).withValues(alpha: 0.05),
+                ButtonStyles.cancel =>
+                  (widget.color ?? AppColors.black).withValues(alpha: 0.05),
               },
             ),
             elevation: WidgetStateProperty.all(6),
@@ -114,7 +117,7 @@ class _AppButtonState extends State<AppButton> {
                 ButtonStyles.primary ||
                 ButtonStyles.secondary ||
                 ButtonStyles.cancel =>
-                  AppColors.brandGold.withOpacity(.05),
+                  AppColors.black.withValues(alpha: 0.05),
               },
             ),
             fixedSize: WidgetStateProperty.resolveWith(
@@ -259,7 +262,7 @@ class _AppIconButtonState extends State<AppIconButton> {
         ButtonStyles.secondary => RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
             side: BorderSide(
-              color: widget.color ?? AppColors.brandGold,
+              color: widget.color ?? AppColors.black,
             ),
           ),
         ButtonStyles.cancel => RoundedRectangleBorder(
@@ -280,7 +283,7 @@ class _AppIconButtonState extends State<AppIconButton> {
               ButtonStyles.secondary => RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                   side: BorderSide(
-                    color: widget.color ?? AppColors.brandGold,
+                    color: widget.color ?? AppColors.black,
                   ),
                 ),
               ButtonStyles.cancel => RoundedRectangleBorder(
@@ -290,25 +293,27 @@ class _AppIconButtonState extends State<AppIconButton> {
             },
             foregroundColor: switch (widget.style) {
               ButtonStyles.primary => AppColors.white,
-              ButtonStyles.secondary => widget.color ?? AppColors.brandGold,
-              ButtonStyles.cancel => widget.color ?? AppColors.brandGold,
+              ButtonStyles.secondary => widget.color ?? AppColors.black,
+              ButtonStyles.cancel => widget.color ?? AppColors.black,
             },
             backgroundColor: switch (widget.style) {
-              ButtonStyles.primary => widget.color ?? AppColors.brandGold,
+              ButtonStyles.primary => widget.color ?? AppColors.black,
               ButtonStyles.secondary => AppColors.white,
               ButtonStyles.cancel => AppColors.white,
             },
             overlayColor: switch (widget.style) {
-              ButtonStyles.primary => AppColors.brandGold.withOpacity(.05),
-              ButtonStyles.secondary => (widget.color ?? AppColors.brandGold).withOpacity(.05),
-              ButtonStyles.cancel => (widget.color ?? AppColors.brandGold).withOpacity(.05),
+              ButtonStyles.primary => AppColors.black.withValues(alpha: 0.05),
+              ButtonStyles.secondary =>
+                (widget.color ?? AppColors.black).withValues(alpha: 0.05),
+              ButtonStyles.cancel =>
+                (widget.color ?? AppColors.black).withValues(alpha: 0.05),
             },
             elevation: 6,
             shadowColor: switch (widget.style) {
               ButtonStyles.primary ||
               ButtonStyles.secondary ||
               ButtonStyles.cancel =>
-                AppColors.brandGold.withOpacity(.05),
+                AppColors.black.withValues(alpha: 0.05),
             },
           ),
           onPressed: (widget.isLoading || !_isClickable)

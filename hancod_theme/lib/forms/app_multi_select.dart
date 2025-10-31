@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 /// Field for selecting value(s) from a searchable list
-class FormBuilderMultiSelectionSearchableDropdown<T> extends FormBuilderFieldDecoration<List<T>> {
+class FormBuilderMultiSelectionSearchableDropdown<T>
+    extends FormBuilderFieldDecoration<List<T>> {
   /// Creates field for selecting value(s) from a searchable list
   FormBuilderMultiSelectionSearchableDropdown({
     required super.name,
@@ -52,13 +53,15 @@ class FormBuilderMultiSelectionSearchableDropdown<T> extends FormBuilderFieldDec
         popupCustomMultiSelectionWidget = null,
         super(
           builder: (FormFieldState<List<T>?> field) {
-            final state = field as FormBuilderMultiSelectionSearchableDropdownState<T>;
+            final state =
+                field as FormBuilderMultiSelectionSearchableDropdownState<T>;
             return DropdownSearch<T>.multiSelection(
               // Hack to rebuild when didChange is called
 
               suffixProps: DropdownSuffixProps(
                 clearButtonProps: clearButtonProps ?? const ClearButtonProps(),
-                dropdownButtonProps: dropdownButtonProps ?? const DropdownButtonProps(),
+                dropdownButtonProps:
+                    dropdownButtonProps ?? const DropdownButtonProps(),
               ),
               compareFn: compareFn,
               enabled: state.enabled,
@@ -134,7 +137,8 @@ class FormBuilderMultiSelectionSearchableDropdown<T> extends FormBuilderFieldDec
   final DropdownSearchPopupItemBuilder<T>? popupSelectionWidget;
 
   ///widget used to validate items in multiSelection mode
-  final ValidationMultiSelectionBuilder<T?>? popupValidationMultiSelectionWidget;
+  final ValidationMultiSelectionBuilder<T?>?
+      popupValidationMultiSelectionWidget;
 
   ///widget to add custom widget like addAll/removeAll on popup multi selection mode
   final ValidationMultiSelectionBuilder<T>? popupCustomMultiSelectionWidget;
@@ -156,4 +160,5 @@ class FormBuilderMultiSelectionSearchableDropdown<T> extends FormBuilderFieldDec
 }
 
 class FormBuilderMultiSelectionSearchableDropdownState<T>
-    extends FormBuilderFieldDecorationState<FormBuilderMultiSelectionSearchableDropdown<T>, List<T>> {}
+    extends FormBuilderFieldDecorationState<
+        FormBuilderMultiSelectionSearchableDropdown<T>, List<T>> {}

@@ -1,8 +1,12 @@
+
 import 'package:app/features/branch/presentation/branch/branch.dart';
 import 'package:app/features/home/home.dart';
 import 'package:app/features/more/presentation/more/more.dart';
 import 'package:app/features/swap/swap.dart';
 import 'package:app/features/transaction/presentation/transaction/transaction.dart';
+
+import 'package:app/features/deposit_withdraw_cash/deposit_withdraw_cash.dart';
+
 import 'package:app/shared/shared.dart';
 import 'package:app/shared/widgets/navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -82,6 +86,7 @@ class AppRouter {
        GoRoute(
         path: '/', 
         name: home,
+
         // Add a redirect to the first screen of your shell
         redirect: (context, state) {
           // If the user navigates to exactly '/home', send them to the dashboard
@@ -253,6 +258,7 @@ class AppRouter {
             ],
           ),
         ],
+
       ),
     ],
     // refreshListenable: Listenable.merge([authState]),

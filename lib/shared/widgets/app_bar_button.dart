@@ -3,9 +3,9 @@ import 'package:hancod_theme/colors.dart';
 
 class AppBarButton extends StatelessWidget {
   const AppBarButton({
-    super.key,
     required this.onPressed,
     required this.icon,
+    super.key,
   });
   final VoidCallback onPressed;
   final Widget icon;
