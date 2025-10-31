@@ -2,6 +2,7 @@ import 'package:app/shared/utils/assets.gen.dart';
 import 'package:app/shared/widgets/app_bar_button.dart';
 import 'package:app/shared/widgets/appbar.dart';
 import 'package:app/shared/widgets/cash_balance_card.dart';
+import 'package:app/shared/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -49,7 +50,7 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(22),
+                        padding: const EdgeInsets.all(12),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -138,50 +139,52 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
               ),
               Expanded(
                 flex: 2,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 80),
-                      child: SizedBox(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: 12,
-                              height: 160,
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(20),
-                                  bottomRight: Radius.circular(20),
-                                ),
-                                color: AppColors.primaryColor,
-                              ),
-                            ),
-                            const Flexible(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 16),
-                                child: SizedBox(
-                                  height: 180,
-                                  child: CashBalanceCard(),
+                child: Container(color: AppColors.scaffoldBgColor, 
+                  child: Column(
+                    children: [ 
+                      Padding(
+                        padding: const EdgeInsets.only(top: 80),
+                        child: SizedBox(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width: 12,
+                                height: 160,
+                                decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(20),
+                                    bottomRight: Radius.circular(20),
+                                  ),
+                                  color: AppColors.primaryColor,
                                 ),
                               ),
-                            ),
-                            Container(
-                              width: 12,
-                              height: 160,
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20),
-                                  bottomLeft: Radius.circular(20),
+                              const Flexible(
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  child: SizedBox(
+                                    height: 180,
+                                    child: CashBalanceCard(),
+                                  ),
                                 ),
-                                color: AppColors.primaryColor,
                               ),
-                            ),
-                          ],
+                              Container(
+                                width: 12,
+                                height: 160,
+                                decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20),
+                                  ),
+                                  color: AppColors.primaryColor,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -341,6 +344,8 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
           ),
         ],
       ),
+
+      // bottomNavigationBar: HomeNavigationBar(navigationShell: widget.navigationShell),
     );
   }
 }

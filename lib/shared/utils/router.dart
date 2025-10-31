@@ -1,5 +1,14 @@
+
+import 'package:app/features/branch/presentation/branch/branch.dart';
+import 'package:app/features/home/home.dart';
+import 'package:app/features/more/presentation/more/more.dart';
+import 'package:app/features/swap/swap.dart';
+import 'package:app/features/transaction/presentation/transaction/transaction.dart';
+
 import 'package:app/features/deposit_withdraw_cash/deposit_withdraw_cash.dart';
+
 import 'package:app/shared/shared.dart';
+import 'package:app/shared/widgets/navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -59,17 +68,197 @@ class AppRouter {
   static const String home = 'home';
   static const String splash = 'splash';
   static const String login = 'login';
+  static const String wallet = 'wallet'; 
+  static const String transaction = 'transaction';
+  static const String swap = 'swap';
+  static const String branch = 'branch';
+  static const String more = 'more';
 
   late final GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
-      GoRoute(
-        path: '/',
+      // GoRoute(
+      //   path: '/',
+      //   name: login, 
+      //   builder: (context, state) => const HomeScreen(),
+      // ),
+       GoRoute(
+        path: '/', 
         name: home,
-        builder: (context, state) => const DepositWithdrawScreen(
-          transferType: TransferType.deposit,
-        ),
+
+        // Add a redirect to the first screen of your shell
+        redirect: (context, state) {
+          // If the user navigates to exactly '/home', send them to the dashboard
+          if (state.fullPath == '/') {
+            return '/$wallet';
+          }
+          // Otherwise, let them continue to their intended sub-route
+          return null;
+        },
+        // IMPORTANT: No builder here. This route's only job is to host child routes.
+        routes: [
+          // Nest the StatefulShellRoute inside
+          StatefulShellRoute.indexedStack(
+            builder: (
+              BuildContext context,
+              GoRouterState state,
+              StatefulNavigationShell navigationShell,
+            ) =>
+                HomeNavigationBar(navigationShell: navigationShell),
+            branches: <StatefulShellBranch>[
+              StatefulShellBranch(
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: wallet,
+                    name: wallet,
+                    builder: (context, state) => const HomeScreen(),
+                    routes: [
+                      // GoRoute(
+                      //   path: tradingExecution,
+                      //   parentNavigatorKey: _rootNavigatorKey,
+                      //   name: tradingExecution,
+                      //   builder: (context, state) =>
+                      //       const TradingExecutionScreen(),
+                      //   routes: [
+                      //     GoRoute(
+                      //       path: transactionConfirmation,
+                      //       parentNavigatorKey: _rootNavigatorKey,
+                      //       name: transactionConfirmation,
+                      //       builder: (context, state) {
+                      //         final data = state.extra! as CreateOrderResponse;
+                      //         return TransactionConfirmationScreen(
+                      //           details: data,
+                      //         );
+                      //       },
+                      //     ),
+                      //   ],
+                      // ),
+                    ],
+                  ),
+                ],
+              ),
+              StatefulShellBranch(
+                routes: <RouteBase>[
+                  GoRoute(
+                    // Path is now relative to '/home'
+                    path: transaction,
+                    name: transaction,
+                    builder: (context, state) => TransactionScreen(),
+                  ),
+                ],
+              ),
+              // StatefulShellBranch(
+              //   routes: <RouteBase>[
+              //     GoRoute(
+              //       path: swap,
+              //       name: swap,
+              //       builder: (context, state) => SwapScreen(),
+              //       routes: [
+              //         // GoRoute(
+              //         //   path: '$ledgerEntriesDetails/:ledgerId',
+              //         //   name: ledgerEntriesDetails,
+              //         //   parentNavigatorKey: _rootNavigatorKey,
+              //         //   builder: (context, state) {
+              //         //     final ledgerId =
+              //         //         state.pathParameters['ledgerId'] ?? '';
+              //         //     return LedgerEntryDetailsScreen(ledgerId: ledgerId);
+              //         //   },
+              //         // ),
+              //       ],
+              //     ),
+              //   ],
+              // ),
+              StatefulShellBranch(
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: branch,
+                    name: branch,
+                    builder: (context, state) => const BranchScreen(),
+                    routes: [
+                  //     GoRoute(
+                  //       path: wallet,
+                  //       name: wallet,
+                  //       parentNavigatorKey: _rootNavigatorKey,
+                  //       builder: (context, state) => const WalletScreen(),
+                  //     ),
+                  //     GoRoute(
+                  //       path: profile,
+                  //       name: profile,
+                  //       parentNavigatorKey: _rootNavigatorKey,
+                  //       builder: (context, state) => const ProfileScreen(),
+                  //     ),
+                  //     GoRoute(
+                  //       path: transactionHistory,
+                  //       name: transactionHistory,
+                  //       parentNavigatorKey: _rootNavigatorKey,
+                  //       builder: (context, state) =>
+                  //           const TransactionHistoryScreen(),
+                  //     ),
+                  //     GoRoute(
+                  //       path: hedgingAnalysis,
+                  //       name: hedgingAnalysis,
+                  //       parentNavigatorKey: _rootNavigatorKey,
+                  //       builder: (context, state) =>
+                  //           const HedgingAnalysisScreen(),
+                  //     ),
+                  //     GoRoute(
+                  //       path: allOrders,
+                  //       name: allOrders,
+                  //       parentNavigatorKey: _rootNavigatorKey,
+                  //       builder: (context, state) => const AllOrdersScreen(),
+                  //     ),
+                    ],
+                  ),
+                ],
+              ),
+              StatefulShellBranch(
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: more,
+                    name: more,
+                    builder: (context, state) => const MoreScreen(),
+                    routes: [
+                      // GoRoute(
+                      //   path: wallet,
+                      //   name: wallet,
+                      //   parentNavigatorKey: _rootNavigatorKey,
+                      //   builder: (context, state) => const WalletScreen(),
+                      // ),
+                      // GoRoute(
+                      //   path: profile,
+                      //   name: profile,
+                      //   parentNavigatorKey: _rootNavigatorKey,
+                      //   builder: (context, state) => const ProfileScreen(),
+                      // ),
+                      // GoRoute(
+                      //   path: transactionHistory,
+                      //   name: transactionHistory,
+                      //   parentNavigatorKey: _rootNavigatorKey,
+                      //   builder: (context, state) =>
+                      //       const TransactionHistoryScreen(),
+                      // ),
+                      // GoRoute(
+                      //   path: hedgingAnalysis,
+                      //   name: hedgingAnalysis,
+                      //   parentNavigatorKey: _rootNavigatorKey,
+                      //   builder: (context, state) =>
+                      //       const HedgingAnalysisScreen(),
+                      // ),
+                      // GoRoute(
+                      //   path: allOrders,
+                      //   name: allOrders,
+                      //   parentNavigatorKey: _rootNavigatorKey,
+                      //   builder: (context, state) => const AllOrdersScreen(),
+                      // ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+
       ),
     ],
     // refreshListenable: Listenable.merge([authState]),
