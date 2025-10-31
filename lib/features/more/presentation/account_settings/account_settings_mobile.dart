@@ -3,36 +3,19 @@ import 'package:app/shared/shared.dart';
 import 'package:app/shared/utils/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:go_router/go_router.dart';
-import 'package:hancod_theme/colors.dart';
-import 'package:hancod_theme/text.dart';
-import 'package:package_info_plus/package_info_plus.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hancod_theme/hancod_theme.dart';
 
-class MoreScreenMobile extends ConsumerStatefulWidget {
-  const MoreScreenMobile({super.key});
+class AccountSettingsScreenMobile extends ConsumerStatefulWidget {
+  const AccountSettingsScreenMobile({super.key});
 
   @override
-  ConsumerState<MoreScreenMobile> createState() => _MoreScreenMobileState();
+  ConsumerState<AccountSettingsScreenMobile> createState() =>
+      _AccountSettingsScreenMobileState();
 }
 
-class _MoreScreenMobileState extends ConsumerState<MoreScreenMobile> {
-  String _version = '...';
-
-  @override
-  void initState() {
-    super.initState();
-    _initPackageInfo();
-  }
-
-  Future<void> _initPackageInfo() async {
-    final info = await PackageInfo.fromPlatform();
-    if (mounted) {
-      setState(() {
-        _version = 'App Version ${info.version}';
-      });
-    }
-  }
-
+class _AccountSettingsScreenMobileState
+    extends ConsumerState<AccountSettingsScreenMobile> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
@@ -40,10 +23,10 @@ class _MoreScreenMobileState extends ConsumerState<MoreScreenMobile> {
       'Sales': [
         {
           'onTap': () {
-            AppRouter.pushNamed(AppRouter.accountSettings);
+            AppRouter.pushNamed(AppRouter.changePassword);
           },
-          'title': 'Account Settings',
-          'icon': Assets.icons.settings.svg(
+          'title': 'Change Password',
+          'icon': Assets.icons.changePassword.svg(
             height: 20,
             width: 20,
             colorFilter: const ColorFilter.mode(
@@ -54,34 +37,10 @@ class _MoreScreenMobileState extends ConsumerState<MoreScreenMobile> {
         },
         {
           'onTap': () {
-            AppRouter.pushNamed(AppRouter.helpAndSupport);
+            // AppRouter.pushNamed(AppRouter.helpAndSupport);
           },
-          'title': 'Help & Support',
-          'icon': Assets.icons.helpAndSupport.svg(
-            colorFilter: const ColorFilter.mode(
-              Color(0xFF7E7E7E),
-              BlendMode.srcIn,
-            ),
-          ),
-        },
-        {
-          'onTap': () {
-            AppRouter.pushNamed(AppRouter.aboutUs);
-          },
-          'title': 'About Us',
-          'icon': Assets.icons.about.svg(
-            colorFilter: const ColorFilter.mode(
-              Color(0xFF7E7E7E),
-              BlendMode.srcIn,
-            ),
-          ),
-        },
-        {
-          'onTap': () {
-            AppRouter.pushNamed(AppRouter.notificationPreferences);
-          },
-          'title': 'Notification Preferences',
-          'icon': Assets.icons.notification.svg(
+          'title': 'Logout',
+          'icon': Assets.icons.logOut.svg(
             colorFilter: const ColorFilter.mode(
               Color(0xFF7E7E7E),
               BlendMode.srcIn,
@@ -92,9 +51,9 @@ class _MoreScreenMobileState extends ConsumerState<MoreScreenMobile> {
     };
     return Scaffold(
       appBar: CustomAppBar(
-        leadingWidth: 10,
+        // leadingWidth: 10,
         title: Text(
-          l10n.more,
+          l10n.accountSettings,
           style: AppText.mediumN.copyWith(color: AppColors.title),
         ),
       ),
@@ -142,35 +101,15 @@ class _MoreScreenMobileState extends ConsumerState<MoreScreenMobile> {
                 ),
               ),
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          spacing: 8,
-          children: [
-            Assets.images.appIconWithName.svg(),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  l10n.privacyPolicy,
-                  style: AppText.xSmallN.copyWith(color: AppColors.brandGold),
-                ),
-                const SizedBox(width: 0),
-                Text(
-                  _version,
-                  style: AppText.xSmallN.copyWith(color: AppColors.fontLight3),
-                ),
-                Text(
-                  l10n.termsConditions,
-                  style: AppText.xSmallN.copyWith(color: AppColors.brandGold),
-                ),
-              ],
+            const SizedBox(height: 14),
+            TextButton(
+              onPressed: () {
+                context.pushNamed(AppRouter.deleteAccount);
+              },
+              child: Text(
+                l10n.deleteAccount,
+                style: AppText.mediumN.copyWith(color: AppColors.darkRed),
+              ),
             ),
           ],
         ),

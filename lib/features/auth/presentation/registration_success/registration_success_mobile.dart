@@ -1,6 +1,8 @@
 import 'package:app/shared/utils/assets.gen.dart';
+import 'package:app/shared/utils/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hancod_theme/hancod_theme.dart';
 import 'package:lottie/lottie.dart';
 
@@ -130,6 +132,7 @@ class _RegistrationSuccessScreenMobileState
                 child: FadeTransition(
                   opacity: _fadeAnimation,
                   child: Text(
+                    textAlign: TextAlign.center,
                     widget.title!,
                     style: AppText.m20,
                   ),
@@ -141,6 +144,7 @@ class _RegistrationSuccessScreenMobileState
                 child: FadeTransition(
                   opacity: _fadeAnimation,
                   child: Text(
+                    textAlign: TextAlign.center,
                     widget.subTitle!,
                     style: AppText.mediumN.copyWith(
                       color: AppColors.fontLight3,
@@ -160,7 +164,10 @@ class _RegistrationSuccessScreenMobileState
                           padding: const EdgeInsets.symmetric(
                             vertical: 14,
                           ),
-                          onPress: widget.onTap,
+                          // onPress: widget.onTap,
+                          onPress: () {
+                            context.goNamed(AppRouter.home);
+                          },
                           label: const Text('Continue'),
                         ),
                       ),

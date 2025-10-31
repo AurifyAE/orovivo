@@ -99,13 +99,11 @@ class $AssetsIconsGen {
   /// File path: assets/icons/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/icons/filter.svg');
 
-
-  /// File path: assets/icons/gallery.svg
-  SvgGenImage get gallery => const SvgGenImage('assets/icons/gallery.svg');
-
   /// File path: assets/icons/float_btn.svg
   SvgGenImage get floatBtn => const SvgGenImage('assets/icons/float_btn.svg');
 
+  /// File path: assets/icons/gallery.svg
+  SvgGenImage get gallery => const SvgGenImage('assets/icons/gallery.svg');
 
   /// File path: assets/icons/help_and_support.svg
   SvgGenImage get helpAndSupport =>
@@ -231,11 +229,8 @@ class $AssetsIconsGen {
     eyesClosed,
     eyesOpened,
     filter,
-
-    gallery,
-
     floatBtn,
-
+    gallery,
     helpAndSupport,
     high,
     home,
@@ -294,6 +289,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/gold.svg
   SvgGenImage get gold => const SvgGenImage('assets/images/gold.svg');
 
+  /// File path: assets/images/navigation_bg.svg
+  SvgGenImage get navigationBg =>
+      const SvgGenImage('assets/images/navigation_bg.svg');
 
   /// File path: assets/images/reg_suc_bg.png
   AssetGenImage get regSucBg =>
@@ -311,11 +309,6 @@ class $AssetsImagesGen {
   SvgGenImage get registrationSuccessBg =>
       const SvgGenImage('assets/images/registration_success_bg.svg');
 
-  /// File path: assets/images/navigation_bg.svg
-  SvgGenImage get navigationBg =>
-      const SvgGenImage('assets/images/navigation_bg.svg');
-
-
   /// List of all assets
   List<dynamic> get values => [
     appIcon,
@@ -325,14 +318,11 @@ class $AssetsImagesGen {
     cardBaground,
     chip,
     gold,
-
+    navigationBg,
     regSucBg,
     registerBgPng,
     registerBgSvg,
     registrationSuccessBg,
-
-    navigationBg,
-
   ];
 }
 

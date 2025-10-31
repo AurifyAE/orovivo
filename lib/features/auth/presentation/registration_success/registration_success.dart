@@ -7,14 +7,24 @@ export 'registration_success_mobile.dart';
 export 'registration_success_web.dart';
 
 class RegistrationSuccessScreen extends ConsumerWidget {
-  const RegistrationSuccessScreen({super.key});
+  const RegistrationSuccessScreen({
+    super.key,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final String title;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold(
+    return Scaffold(
       body: ResponsiveWidget(
-        smallScreen: RegistrationSuccessScreenMobile(),
-        largeScreen: RegistrationSuccessScreenWeb(),
+        smallScreen: RegistrationSuccessScreenMobile(
+          title: title,
+          subTitle: subtitle,
+        ),
+        largeScreen: const RegistrationSuccessScreenWeb(),
       ),
     );
   }

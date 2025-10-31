@@ -3,19 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:app/features/more/more.dart';
 import 'package:app/shared/shared.dart';
 
-export 'more_mobile.dart';
-export 'more_web.dart';
-export 'widgets/more_item_tile.dart';
+export 'delete_account_mobile.dart';
+export 'delete_account_web.dart';
 
-class MoreScreen extends ConsumerWidget {
-  const MoreScreen({super.key});
+class DeleteAccountScreen extends ConsumerWidget {
+  const DeleteAccountScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return const Scaffold(
       body: ResponsiveWidget(
-        smallScreen: MoreScreenMobile(),
-        largeScreen: MoreScreenWeb(),
+        smallScreen: DeleteAccountScreenMobile(),
+        largeScreen: DeleteAccountScreenWeb(),
       ),
     );
   }

@@ -18,15 +18,14 @@ class CustomAppBar extends PreferredSize {
             kToolbarHeight + (bottomHeight ?? 0),
           ),
           child: Container(
-
-            decoration: BoxDecoration(    
+            decoration: BoxDecoration(
               color: AppColors.primaryColor,
-              image: DecorationImage( 
-                image: AssetImage(Assets.images.appbarBg.path),     
-                fit: BoxFit.cover, // makes it fill nicely
+              image: DecorationImage(
+                image: AssetImage(Assets.images.appbarBg.path),
+                fit: BoxFit.fitWidth, // makes it fill nicely
               ),
-            ), 
-            child: AppBar( 
+            ),
+            child: AppBar(
               bottom: bottom != null
                   ? PreferredSize(
                       preferredSize:
@@ -34,8 +33,7 @@ class CustomAppBar extends PreferredSize {
                       child: bottom,
                     )
                   : null,
-              backgroundColor: Colors.transparent,         
-
+              backgroundColor: Colors.transparent,
               title: title,
               centerTitle: centerTitle,
               actions: actions,
@@ -55,29 +53,13 @@ class CustomAppBar extends PreferredSize {
                           child: Ink(
                             height: 25,
                             width: 25,
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.offWhite
-                                      .withValues(alpha: 0.05),
-                                  blurRadius: 1,
-                                  offset: const Offset(0, 2),
-                                ),
-                              ],
-                              // border: Border.all(
-                              //   color: AppColors.greyText,
-                              //   width: 1.31,
-                              // ),
-                              // borderRadius: BorderRadius.circular(8),
-                              // color: AppColors.primaryColor2,
-                            ),
                             child: InkWell(
                               borderRadius: BorderRadius.circular(8),
                               onTap: context.pop,
                               child: const Padding(
                                 padding: EdgeInsets.only(left: 8),
                                 child: Icon(
-                                  Icons.arrow_back_ios,
+                                  Icons.arrow_back_rounded,
                                   size: 20,
                                   color: AppColors.greyNew,
                                 ),
@@ -85,7 +67,9 @@ class CustomAppBar extends PreferredSize {
                             ),
                           ),
                         )
-                      : const SizedBox.shrink();
+                      : const SizedBox(
+                          width: 0,
+                        );
                 },
               ),
             ),

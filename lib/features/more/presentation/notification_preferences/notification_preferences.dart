@@ -3,19 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:app/features/more/more.dart';
 import 'package:app/shared/shared.dart';
 
-export 'more_mobile.dart';
-export 'more_web.dart';
-export 'widgets/more_item_tile.dart';
+export 'notification_preferences_mobile.dart';
+export 'notification_preferences_web.dart';
 
-class MoreScreen extends ConsumerWidget {
-  const MoreScreen({super.key});
+class NotificationPreferencesScreen extends ConsumerWidget {
+  const NotificationPreferencesScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return const Scaffold(
       body: ResponsiveWidget(
-        smallScreen: MoreScreenMobile(),
-        largeScreen: MoreScreenWeb(),
+        smallScreen: NotificationPreferencesScreenMobile(),
+        largeScreen: NotificationPreferencesScreenWeb(),
       ),
     );
   }

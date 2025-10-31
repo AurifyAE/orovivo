@@ -21,9 +21,9 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
     return Scaffold(
       appBar: CustomAppBar(
         leadingWidth: 10,
-        title: const Text(
+        title: Text(
           'Hi, ANIL KUMAR',
-          style: TextStyle(color: AppColors.title),
+          style: AppText.largeN.copyWith(color: AppColors.title),
         ),
         centerTitle: false,
         actions: [
@@ -47,143 +47,127 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
               Expanded(
                 child: ColoredBox(
                   color: AppColors.primaryColor,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    'Gold Balance ',
+                                    style: AppText.mediumN.copyWith(
+                                      color: AppColors.title2,
+                                      // fontSize: 14,
+                                    ),
+                                  ),
+                                  Text(
+                                    '267.89 g',
+                                    style: AppText.n20.copyWith(
+                                      color: AppColors.title,
+                                      fontSize: 38,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Assets.images.gold.svg(),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          spacing: 18,
                           children: [
-                            const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'Gold Balance ',
-                                  style: TextStyle(
-                                    color: AppColors.title2,
-                                    fontSize: 14,
-                                  ),
+                            Expanded(
+                              child: AppButton.icon(
+                                color: AppColors.primaryColor2,
+                                onPress: () {},
+                                icon: Assets.icons.buy.svg(
+                                  width: 20,
+                                  height: 20,
                                 ),
-                                Text(
-                                  '267.89 g',
-                                  style: TextStyle(
+                                label: Text(
+                                  'Buy Gold',
+                                  style: AppText.smallM.copyWith(
                                     color: AppColors.title,
-                                    fontSize: 38,
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
-                            Assets.images.gold.svg(),
+                            Expanded(
+                              child: AppButton.icon(
+                                color: AppColors.primaryColor2,
+                                onPress: () {},
+                                icon: Assets.icons.sellGold.svg(
+                                  width: 20,
+                                  height: 20,
+                                ),
+                                label: Text(
+                                  'Sell Gold',
+                                  style: AppText.smallM.copyWith(
+                                    color: AppColors.title,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ElevatedButton.icon(
-                            onPressed: () {},
-                            icon: Assets.icons.buy.svg(
-                              width: 22,
-                              height: 22,
-                            ),
-                            label: const Text(
-                              'Buy Gold',
-                              style: TextStyle(
-                                color: AppColors.title,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primaryColor2,
-                              elevation: 0,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 40,
-                                vertical: 14,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          ElevatedButton.icon(
-                            onPressed: () {},
-                            icon: Assets.icons.sellGold.svg(),
-                            label: const Text(
-                              'Sell Gold',
-                              style: TextStyle(
-                                color: AppColors.title,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primaryColor2,
-                              elevation: 0,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 40,
-                                vertical: 14,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
               Expanded(
                 flex: 2,
-                child: Container(color: AppColors.scaffoldBgColor, 
-                  child: Column(
-                    children: [ 
-                      Padding(
-                        padding: const EdgeInsets.only(top: 80),
-                        child: SizedBox(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                width: 12,
-                                height: 160,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(20),
-                                    bottomRight: Radius.circular(20),
-                                  ),
-                                  color: AppColors.primaryColor,
-                                ),
+                child: ColoredBox(
+                  color: AppColors.scaffoldBgColor,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 80),
+                    child: SizedBox(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 12,
+                            height: 160,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20),
                               ),
-                              const Flexible(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 16),
-                                  child: SizedBox(
-                                    height: 180,
-                                    child: CashBalanceCard(),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 12,
-                                height: 160,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    bottomLeft: Radius.circular(20),
-                                  ),
-                                  color: AppColors.primaryColor,
-                                ),
-                              ),
-                            ],
+                              color: AppColors.primaryColor,
+                            ),
                           ),
-                        ),
+                          const Flexible(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              child: SizedBox(
+                                height: 180,
+                                child: CashBalanceCard(),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 12,
+                            height: 160,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                bottomLeft: Radius.circular(20),
+                              ),
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -235,12 +219,10 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                               ).createShader(bounds),
-                              child: const Text(
+                              child: Text(
                                 'LIVE GOLD RATE',
-                                style: TextStyle(
+                                style: AppText.mediumM.copyWith(
                                   color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -248,7 +230,7 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                               width: 8,
                               height: 8,
                               decoration: const BoxDecoration(
-                                color: AppColors.ledgerSupplierDue,
+                                color: Color(0xFF15600B),
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -259,7 +241,7 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 20,
-                          vertical: 16,
+                          vertical: 13,
                         ),
                         decoration: const BoxDecoration(
                           color: Colors.white,
@@ -268,7 +250,7 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                             bottomRight: Radius.circular(20),
                           ),
                         ),
-                        child: const Row(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Column(
@@ -276,19 +258,16 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                               children: [
                                 Text(
                                   'ASK',
-                                  style: TextStyle(
-                                    color: Color(0xFF4CAF50),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
+                                  style: AppText.smallM.copyWith(
+                                    color: AppColors.askGreen,
                                   ),
                                 ),
-                                SizedBox(height: 6),
+                                const SizedBox(height: 6),
                                 Text(
                                   r'$2043.50',
-                                  style: TextStyle(
-                                    color: Colors.black87,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
+                                  style: AppText.mediumSB.copyWith(
+                                    color: AppColors.black,
+                                    // fontSize: 17,
                                   ),
                                 ),
                               ],
@@ -298,36 +277,33 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                               children: [
                                 Text(
                                   'BID',
-                                  style: TextStyle(
-                                    color: Color(0xFFF44336),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
+                                  style: AppText.smallM.copyWith(
+                                    color: AppColors.bidRed,
                                   ),
                                 ),
-                                SizedBox(height: 6),
+                                const SizedBox(height: 6),
                                 Text(
                                   r'$2043.50',
-                                  style: TextStyle(
+                                  style: AppText.mediumSB.copyWith(
                                     color: Colors.black87,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
+                                    // fontSize: 17,
                                   ),
                                 ),
                               ],
                             ),
                             Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.trending_up,
-                                  color: Color(0xFF4CAF50),
+                                  color: AppColors.askGreen,
                                   size: 20,
                                 ),
-                                SizedBox(width: 4),
+                                const SizedBox(width: 4),
                                 Text(
                                   '+1.25%',
-                                  style: TextStyle(
-                                    color: Color(0xFF4CAF50),
-                                    fontSize: 13,
+                                  style: AppText.smallN.copyWith(
+                                    color: AppColors.askGreen,
+                                    // fontSize: 13,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),

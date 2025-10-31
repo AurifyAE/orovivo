@@ -1,5 +1,4 @@
-import 'package:app/shared/utils/utils.dart';
-import 'package:app/shared/widgets/appbar.dart';
+import 'package:app/shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,15 +6,16 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hancod_theme/hancod_theme.dart';
 
-class PasswordScreenMobile extends ConsumerStatefulWidget {
-  const PasswordScreenMobile({super.key});
+class ChangePasswordScreenMobile extends ConsumerStatefulWidget {
+  const ChangePasswordScreenMobile({super.key});
 
   @override
-  ConsumerState<PasswordScreenMobile> createState() =>
-      _PasswordScreenMobileState();
+  ConsumerState<ChangePasswordScreenMobile> createState() =>
+      _ChangePasswordScreenMobileState();
 }
 
-class _PasswordScreenMobileState extends ConsumerState<PasswordScreenMobile> {
+class _ChangePasswordScreenMobileState
+    extends ConsumerState<ChangePasswordScreenMobile> {
   final _formKey = GlobalKey<FormBuilderState>();
   String _password = '';
   bool _hasAttemptedSubmit = false;
@@ -28,31 +28,12 @@ class _PasswordScreenMobileState extends ConsumerState<PasswordScreenMobile> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: CustomAppBar(
-        leadingWidth: 50,
-        bottomHeight: 80,
-        bottom: Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: 'Secure Your Account',
-                  style: AppText.largeN.copyWith(
-                    height: 2,
-                    color: AppColors.fontLight2,
-                  ),
-                ),
-                TextSpan(
-                  text: '\nCreate a strong password to protect your account',
-                  style: AppText.mediumN.copyWith(
-                    color: const Color(0xFF838383),
-                  ),
-                ),
-              ],
-            ),
-          ),
+        title: Text(
+          l10n.changePassword,
+          style: AppText.mediumN.copyWith(color: AppColors.title),
         ),
       ),
       body: FormBuilder(
@@ -83,10 +64,10 @@ class _PasswordScreenMobileState extends ConsumerState<PasswordScreenMobile> {
                           spacing: 16,
                           children: [
                             AppTextForm<String>(
-                              labelSpacing: 4,
+                              labelSpacing: 8,
                               enableObscureText: true,
-                              label: 'Password',
-                              secondaryLabel: 'Enter Your Password',
+                              label: l10n.currentPassword,
+                              secondaryLabel: l10n.enterCurrentPassword,
                               onChanged: (value) {
                                 setState(() {
                                   _password = value ?? '';
@@ -94,12 +75,37 @@ class _PasswordScreenMobileState extends ConsumerState<PasswordScreenMobile> {
                               },
                               validator: FormBuilderValidators.compose([
                                 FormBuilderValidators.required(
-                                  errorText: 'Please enter Password',
+                                  errorText: l10n.pleaseEnterPassword,
                                 ),
                                 FormBuilderValidators.minLength(
                                   8,
                                   errorText:
-                                      'Password must be at least 8 characters',
+                                      l10n.passwordMustBeAtLeast8Characters,
+                                ),
+                              ]),
+                              labelStyle: AppText.smallSB.copyWith(
+                                color: AppColors.stormyBlue,
+                              ),
+                              name: 'current_password',
+                            ),
+                            AppTextForm<String>(
+                              labelSpacing: 8,
+                              enableObscureText: true,
+                              label: l10n.newPassword,
+                              secondaryLabel: l10n.enterNewPassword,
+                              onChanged: (value) {
+                                setState(() {
+                                  _password = value ?? '';
+                                });
+                              },
+                              validator: FormBuilderValidators.compose([
+                                FormBuilderValidators.required(
+                                  errorText: l10n.pleaseEnterNewPassword,
+                                ),
+                                FormBuilderValidators.minLength(
+                                  8,
+                                  errorText:
+                                      l10n.passwordMustBeAtLeast8Characters,
                                 ),
                               ]),
                               labelStyle: AppText.smallSB.copyWith(
@@ -108,13 +114,13 @@ class _PasswordScreenMobileState extends ConsumerState<PasswordScreenMobile> {
                               name: 'password',
                             ),
                             AppTextForm<String>(
-                              labelSpacing: 4,
+                              labelSpacing: 8,
                               enableObscureText: true,
-                              label: 'Confirm Password',
-                              secondaryLabel: 'Re-Enter Password',
+                              label: l10n.confirmPassword,
+                              secondaryLabel: l10n.enterConfirmPassword,
                               validator: FormBuilderValidators.compose([
                                 FormBuilderValidators.required(
-                                  errorText: 'Please enter Password',
+                                  errorText: l10n.pleaseEnterConfirmPassword,
                                 ),
                                 (value) {
                                   if (value !=
@@ -176,7 +182,7 @@ class _PasswordScreenMobileState extends ConsumerState<PasswordScreenMobile> {
                                       }
                                     },
                                     label: Text(
-                                      'Continue',
+                                      l10n.resetPassword,
                                       style: AppText.mediumM.copyWith(
                                         color: AppColors.white,
                                       ),

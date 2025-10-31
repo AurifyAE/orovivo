@@ -21,6 +21,7 @@ class AppColors {
   static const Color lightPurple = Color(0xFFEFF1FF);
   static const Color greyText = Color(0xFF585865);
   static const Color darkBlue = Color(0xff27207C);
+  static const Color darkRed = Color(0xffc11d28);
   static const Color tableHeaderColor = Color(0xFFF4F6FF);
   static const Color divider = Color(0xFFF2f2f2);
   static const Color oddRowColor = Color(0xffF7F7F7);
@@ -45,12 +46,13 @@ class AppColors {
 
   static const Color blue = Color(0xFF0085FF);
   static const Color orange = Color(0xFFFE7F0A);
+  static const Color yellow = Color(0xFFEAB40D);
 
   static const Color ledgerTotalSales = Color(0xffFF6A00);
   static const Color ledgerTotalPurchases = Color(0xff551FFF);
   static const Color ledgerReceiveAmount = Color(0xff00B2FF);
-  static const Color ledgerCustomerDue = Color(0xffEE0000);
-  static const Color ledgerSupplierDue = Color(0xff4CAE29);
+  static const Color bidRed = Color(0xffd16c5a);
+  static const Color askGreen = Color(0xff329B7C);
   static const Color secondaryColor = Color(0xFFABAAB1);
   static const Color secondaryBackgroundColor = Color(0xFFF8F8F8);
 

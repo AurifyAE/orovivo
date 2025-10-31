@@ -1,17 +1,19 @@
-
 import 'package:app/features/auth/presentation/auth_presentation.dart';
 import 'package:app/features/deposit_withdraw_cash/deposit_withdraw_cash.dart';
 import 'package:app/features/home/presentation/home/home.dart';
 
-
 import 'package:app/features/branch/presentation/branch/branch.dart';
 import 'package:app/features/home/home.dart';
+import 'package:app/features/more/presentation/account_settings/account_settings.dart';
+import 'package:app/features/more/presentation/change_password/change_password.dart';
+import 'package:app/features/more/presentation/delete_account/delete_account.dart';
+import 'package:app/features/more/presentation/help_and_support/help_and_support.dart';
 import 'package:app/features/more/presentation/more/more.dart';
+import 'package:app/features/more/presentation/notification_preferences/notification_preferences.dart';
 import 'package:app/features/swap/swap.dart';
 import 'package:app/features/transaction/presentation/transaction/transaction.dart';
 
 import 'package:app/features/deposit_withdraw_cash/deposit_withdraw_cash.dart';
-
 
 import 'package:app/shared/shared.dart';
 import 'package:app/shared/widgets/navigation_bar.dart';
@@ -81,12 +83,20 @@ class AppRouter {
   static const String profilePicture = 'profile_picture';
   static const String registrationSuccess = 'registration_success';
 
-  static const String wallet = 'wallet'; 
+  static const String wallet = 'wallet';
   static const String transaction = 'transaction';
   static const String swap = 'swap';
   static const String branch = 'branch';
+
   static const String more = 'more';
 
+  static const String accountSettings = 'account_settings';
+  static const String changePassword = 'change_password';
+  static const String deleteAccount = 'delete_account';
+
+  static const String helpAndSupport = 'help_and_support';
+  static const String aboutUs = 'about_us';
+  static const String notificationPreferences = 'notification_preferences';
 
   late final GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -95,13 +105,39 @@ class AppRouter {
     routes: [
       // GoRoute(
       //   path: '/',
-      //   name: login, 
+      //   name: login,
       //   builder: (context, state) => const HomeScreen(),
       // ),
-       GoRoute(
-        path: '/', 
+      GoRoute(
+        path: '/$login',
+        name: login,
+        builder: (context, state) => const RegistrationScreen(),
+        routes: [
+          GoRoute(
+            path: password,
+            name: password,
+            builder: (context, state) => const PasswordScreen(),
+          ),
+          GoRoute(
+            path: profilePicture,
+            name: profilePicture,
+            builder: (context, state) => const ProfilePictureScreen(),
+          ),
+          GoRoute(
+            path: registrationSuccess,
+            name: registrationSuccess,
+            builder: (context, state) {
+              return RegistrationSuccessScreen(
+                title: state.uri.queryParameters['title'] ?? '',
+                subtitle: state.uri.queryParameters['subtitle'] ?? '',
+              );
+            },
+          ),
+        ],
+      ),
+      GoRoute(
+        path: '/',
         name: home,
-
 
         // Add a redirect to the first screen of your shell
         redirect: (context, state) {
@@ -129,28 +165,6 @@ class AppRouter {
                     path: wallet,
                     name: wallet,
                     builder: (context, state) => const HomeScreen(),
-                    routes: [
-                      // GoRoute(
-                      //   path: tradingExecution,
-                      //   parentNavigatorKey: _rootNavigatorKey,
-                      //   name: tradingExecution,
-                      //   builder: (context, state) =>
-                      //       const TradingExecutionScreen(),
-                      //   routes: [
-                      //     GoRoute(
-                      //       path: transactionConfirmation,
-                      //       parentNavigatorKey: _rootNavigatorKey,
-                      //       name: transactionConfirmation,
-                      //       builder: (context, state) {
-                      //         final data = state.extra! as CreateOrderResponse;
-                      //         return TransactionConfirmationScreen(
-                      //           details: data,
-                      //         );
-                      //       },
-                      //     ),
-                      //   ],
-                      // ),
-                    ],
                   ),
                 ],
               ),
@@ -160,7 +174,7 @@ class AppRouter {
                     // Path is now relative to '/home'
                     path: transaction,
                     name: transaction,
-                    builder: (context, state) => TransactionScreen(),
+                    builder: (context, state) => const TransactionScreen(),
                   ),
                 ],
               ),
@@ -191,40 +205,6 @@ class AppRouter {
                     path: branch,
                     name: branch,
                     builder: (context, state) => const BranchScreen(),
-                    routes: [
-                  //     GoRoute(
-                  //       path: wallet,
-                  //       name: wallet,
-                  //       parentNavigatorKey: _rootNavigatorKey,
-                  //       builder: (context, state) => const WalletScreen(),
-                  //     ),
-                  //     GoRoute(
-                  //       path: profile,
-                  //       name: profile,
-                  //       parentNavigatorKey: _rootNavigatorKey,
-                  //       builder: (context, state) => const ProfileScreen(),
-                  //     ),
-                  //     GoRoute(
-                  //       path: transactionHistory,
-                  //       name: transactionHistory,
-                  //       parentNavigatorKey: _rootNavigatorKey,
-                  //       builder: (context, state) =>
-                  //           const TransactionHistoryScreen(),
-                  //     ),
-                  //     GoRoute(
-                  //       path: hedgingAnalysis,
-                  //       name: hedgingAnalysis,
-                  //       parentNavigatorKey: _rootNavigatorKey,
-                  //       builder: (context, state) =>
-                  //           const HedgingAnalysisScreen(),
-                  //     ),
-                  //     GoRoute(
-                  //       path: allOrders,
-                  //       name: allOrders,
-                  //       parentNavigatorKey: _rootNavigatorKey,
-                  //       builder: (context, state) => const AllOrdersScreen(),
-                  //     ),
-                    ],
                   ),
                 ],
               ),
@@ -235,38 +215,43 @@ class AppRouter {
                     name: more,
                     builder: (context, state) => const MoreScreen(),
                     routes: [
-                      // GoRoute(
-                      //   path: wallet,
-                      //   name: wallet,
-                      //   parentNavigatorKey: _rootNavigatorKey,
-                      //   builder: (context, state) => const WalletScreen(),
-                      // ),
-                      // GoRoute(
-                      //   path: profile,
-                      //   name: profile,
-                      //   parentNavigatorKey: _rootNavigatorKey,
-                      //   builder: (context, state) => const ProfileScreen(),
-                      // ),
-                      // GoRoute(
-                      //   path: transactionHistory,
-                      //   name: transactionHistory,
-                      //   parentNavigatorKey: _rootNavigatorKey,
-                      //   builder: (context, state) =>
-                      //       const TransactionHistoryScreen(),
-                      // ),
-                      // GoRoute(
-                      //   path: hedgingAnalysis,
-                      //   name: hedgingAnalysis,
-                      //   parentNavigatorKey: _rootNavigatorKey,
-                      //   builder: (context, state) =>
-                      //       const HedgingAnalysisScreen(),
-                      // ),
-                      // GoRoute(
-                      //   path: allOrders,
-                      //   name: allOrders,
-                      //   parentNavigatorKey: _rootNavigatorKey,
-                      //   builder: (context, state) => const AllOrdersScreen(),
-                      // ),
+                      GoRoute(
+                        parentNavigatorKey: _rootNavigatorKey,
+                        path: accountSettings,
+                        name: accountSettings,
+                        builder: (context, state) =>
+                            const AccountSettingsScreen(),
+                        routes: [
+                          GoRoute(
+                            parentNavigatorKey: _rootNavigatorKey,
+                            path: changePassword,
+                            name: changePassword,
+                            builder: (context, state) =>
+                                const ChangePasswordScreen(),
+                          ),
+                          GoRoute(
+                            parentNavigatorKey: _rootNavigatorKey,
+                            path: deleteAccount,
+                            name: deleteAccount,
+                            builder: (context, state) =>
+                                const DeleteAccountScreen(),
+                          ),
+                        ],
+                      ),
+                      GoRoute(
+                        parentNavigatorKey: _rootNavigatorKey,
+                        path: notificationPreferences,
+                        name: notificationPreferences,
+                        builder: (context, state) =>
+                            const NotificationPreferencesScreen(),
+                      ),
+                      GoRoute(
+                        parentNavigatorKey: _rootNavigatorKey,
+                        path: helpAndSupport,
+                        name: helpAndSupport,
+                        builder: (context, state) =>
+                            const HelpAndSupportScreen(),
+                      ),
                     ],
                   ),
                 ],
@@ -274,8 +259,6 @@ class AppRouter {
             ],
           ),
         ],
-
-
       ),
     ],
     // refreshListenable: Listenable.merge([authState]),

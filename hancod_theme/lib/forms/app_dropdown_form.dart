@@ -7,6 +7,7 @@ class AppDropDownForm<T> extends AppForm<T> {
     required super.label,
     required this.items,
     super.key,
+    super.labelSpacing,
     super.validator,
     T? super.initialValue,
     super.fieldKey,
@@ -16,6 +17,7 @@ class AppDropDownForm<T> extends AppForm<T> {
     this.prefixIcon,
     this.showCloseButton = false,
     this.onClear,
+    super.labelStyle,
     this.decoration = const InputDecoration(),
     this.sufixIcon = true,
   });

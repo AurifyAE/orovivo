@@ -128,7 +128,14 @@ class _ProfilePictureScreenMobileState
                   child: AppButton(
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     onPress: () {
-                      context.pushNamed(AppRouter.registrationSuccess);
+                      context.pushNamed(
+                        AppRouter.registrationSuccess,
+                        queryParameters: {
+                          'title': 'Registration Completed Successfully',
+                          'subtitle':
+                              'Please go through the KYC verification to access your wallet, branch details, and exclusive features',
+                        },
+                      );
                     },
                     label: const Text('Finish Setup'),
                   ),

@@ -98,6 +98,12 @@ abstract class AppLocalizations {
     Locale('es')
   ];
 
+  /// No description provided for @accountSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Settings'**
+  String get accountSettings;
+
   /// No description provided for @age.
   ///
   /// In en, this message translates to:
@@ -110,11 +116,29 @@ abstract class AppLocalizations {
   /// **'Cancel'**
   String get cancel;
 
+  /// No description provided for @changePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get changePassword;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
   /// Text shown in the AppBar of the Counter Page
   ///
   /// In en, this message translates to:
   /// **'Counter'**
   String get counterAppBarTitle;
+
+  /// No description provided for @currentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Password'**
+  String get currentPassword;
 
   /// No description provided for @date.
   ///
@@ -122,11 +146,71 @@ abstract class AppLocalizations {
   /// **'Date'**
   String get date;
 
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @deleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteAccount;
+
+  /// No description provided for @enterConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Confirm Password'**
+  String get enterConfirmPassword;
+
+  /// No description provided for @enterCurrentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Current Password'**
+  String get enterCurrentPassword;
+
+  /// No description provided for @enterNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter New Password'**
+  String get enterNewPassword;
+
   /// No description provided for @helloHancod.
   ///
   /// In en, this message translates to:
   /// **'Hello Hancod!'**
   String get helloHancod;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get more;
+
+  /// No description provided for @newFeatureAndImprovements.
+  ///
+  /// In en, this message translates to:
+  /// **'New feature and improvements'**
+  String get newFeatureAndImprovements;
+
+  /// No description provided for @newPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get newPassword;
+
+  /// No description provided for @notificationPreferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Preferences'**
+  String get notificationPreferences;
+
+  /// No description provided for @passwordMustBeAtLeast8Characters.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters'**
+  String get passwordMustBeAtLeast8Characters;
 
   /// No description provided for @phoneNo.
   ///
@@ -134,11 +218,47 @@ abstract class AppLocalizations {
   /// **'Phone No.'**
   String get phoneNo;
 
+  /// No description provided for @pleaseEnterConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter Confirm Password'**
+  String get pleaseEnterConfirmPassword;
+
+  /// No description provided for @pleaseEnterNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter New Password'**
+  String get pleaseEnterNewPassword;
+
+  /// No description provided for @pleaseEnterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter Password'**
+  String get pleaseEnterPassword;
+
   /// No description provided for @primary.
   ///
   /// In en, this message translates to:
   /// **'Primary'**
   String get primary;
+
+  /// No description provided for @privacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicy;
+
+  /// No description provided for @pushNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Push Notifications'**
+  String get pushNotifications;
+
+  /// No description provided for @receiveNotificationsOnYourDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive notifications on your device'**
+  String get receiveNotificationsOnYourDevice;
 
   /// No description provided for @requestDeposit.
   ///
@@ -152,6 +272,12 @@ abstract class AppLocalizations {
   /// **'Request Withdraw'**
   String get requestWithdraw;
 
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPassword;
+
   /// No description provided for @secondary.
   ///
   /// In en, this message translates to:
@@ -163,6 +289,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Something went wrong. Try refreshing the page or checking your internet connection. We\'ll see you in a moment!'**
   String get somethingWentWrong;
+
+  /// No description provided for @termsConditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms & Conditions'**
+  String get termsConditions;
 
   /// No description provided for @textForm.
   ///
