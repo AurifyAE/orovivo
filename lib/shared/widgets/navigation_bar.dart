@@ -1,4 +1,5 @@
 import 'package:app/shared/utils/assets.gen.dart';
+import 'package:app/shared/utils/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -28,9 +29,7 @@ floatingActionButton: Padding(
   child: FloatingActionButton(
     backgroundColor: const Color.fromARGB(255, 255, 255, 255),
     elevation: 0,
-    onPressed: () {
-      // Handle center button press
-    },
+    onPressed: () => context.pushNamed('swap'),    
     shape: const CircleBorder(),
     child: Assets.icons.floatBtn.svg(), 
   ),

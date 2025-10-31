@@ -34,41 +34,15 @@ class CustomAppBar extends PreferredSize {
                       ModalRoute.of(context);
                   return parentRoute?.impliesAppBarDismissal ?? false
                       ? Padding(
-                          padding: const EdgeInsets.only(
-                            left: 15,
-                            top: 10,
-                            bottom: 10,
-                          ),
-                          child: Ink(
-                            height: 25,
-                            width: 25,
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.offWhite
-                                      .withValues(alpha: 0.05),
-                                  blurRadius: 1,
-                                  offset: const Offset(0, 2),
-                                ),
-                              ],
-                              // border: Border.all(
-                              //   color: AppColors.greyText,
-                              //   width: 1.31,
-                              // ),
-                              // borderRadius: BorderRadius.circular(8),
-                              // color: AppColors.primaryColor2,
-                            ),
-                            child: InkWell(
-                              borderRadius: BorderRadius.circular(8),
-                              onTap: context.pop,
-                              child: const Padding(
-                                padding: EdgeInsets.only(left: 8),
-                                child: Icon(
-                                  Icons.arrow_back_ios,
-                                  size: 20,
-                                  color: AppColors.greyNew,
-                                ),
-                              ),
+                          padding: const EdgeInsets.all(10),
+                          child: InkWell(
+                            highlightColor: Colors.transparent,
+                            splashColor: Colors.transparent, 
+                            borderRadius: BorderRadius.circular(8),
+                            onTap: context.pop,
+                            child:  Padding(
+                              padding: EdgeInsets.only(left: 8),
+                              child: Assets.icons.backArrow.svg() 
                             ),
                           ),
                         )
