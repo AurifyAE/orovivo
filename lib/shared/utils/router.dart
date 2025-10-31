@@ -1,5 +1,6 @@
 import 'package:app/features/auth/presentation/auth_presentation.dart';
 import 'package:app/features/deposit_withdraw_cash/deposit_withdraw_cash.dart';
+import 'package:app/features/home/presentation/home/home.dart';
 import 'package:app/shared/shared.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -59,21 +60,50 @@ class AppRouter {
 
   static const String home = 'home';
   static const String splash = 'splash';
+
+  //Auth Section
   static const String login = 'login';
+  static const String password = 'password';
+  static const String profilePicture = 'profile_picture';
+  static const String registrationSuccess = 'registration_success';
 
   late final GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
+    initialLocation: '/$login',
     routes: [
       GoRoute(
         path: '/',
+        name: home,
+        builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        path: '/$login',
         name: login,
         builder: (context, state) => const RegistrationScreen(),
+        routes: [
+          GoRoute(
+            path: password,
+            name: password,
+            builder: (context, state) => const PasswordScreen(),
+          ),
+          GoRoute(
+            path: profilePicture,
+            name: profilePicture,
+            builder: (context, state) => const ProfilePictureScreen(),
+          ),
+          GoRoute(
+            path: registrationSuccess,
+            name: registrationSuccess,
+            builder: (context, state) => const RegistrationSuccessScreen(),
+          ),
+        ],
       ),
     ],
     // refreshListenable: Listenable.merge([authState]),
     redirect: (context, state) {
       return null;
+      // return '/$login';
 
       /// Auth reirection flow
       /*   if (authState.value == null) {

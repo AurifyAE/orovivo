@@ -31,6 +31,7 @@ extension RegistrationStatusExtension on RegistrationStatus {
 abstract class RegistrationState with _$RegistrationState {
   const factory RegistrationState({
     @Default(RegistrationStatus.initial) RegistrationStatus status,
+    @Default(AuthType.login) AuthType authType,
   }) = _RegistrationState;
 
   factory RegistrationState.initial() => const RegistrationState();

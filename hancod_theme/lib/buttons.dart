@@ -19,7 +19,8 @@ class AppButton extends StatefulWidget {
     this.style = ButtonStyles.primary,
     this.padding,
     this.color,
-    this.radius = 10,
+    this.radius = 8,
+    this.elevation,
   });
 
   factory AppButton.icon({
@@ -47,6 +48,7 @@ class AppButton extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final Color? color;
   final double? radius;
+  final double? elevation;
 
   @override
   State<AppButton> createState() => _AppButtonState();
@@ -123,7 +125,7 @@ class _AppButtonState extends State<AppButton> {
                   (widget.color ?? AppColors.black).withValues(alpha: 0.05),
               },
             ),
-            elevation: WidgetStateProperty.all(6),
+            elevation: WidgetStateProperty.all(widget.elevation ?? 6),
             shadowColor: WidgetStateProperty.resolveWith(
               (states) => switch (widget.style) {
                 ButtonStyles.primary ||
@@ -256,7 +258,7 @@ class AppIconButton extends StatefulWidget {
     this.style = ButtonStyles.primary,
     this.padding = const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
     this.color,
-    this.radius = 10,
+    this.radius = 8,
   });
 
   final VoidCallback? onPress;

@@ -17,7 +17,7 @@ class AppColors {
   static const Color green = Color(0xFF2CC56F);
   static const Color textfieldFill = Color(0xFFFBFBFB);
   static const Color brandGold = Color(0xFF825B04);
-  static const Color scaffoldBgColor = Color(0xFFF3F3F3);
+  static const Color scaffoldBgColor = Color(0xFFF2F2F2);
   static const Color lightPurple = Color(0xFFEFF1FF);
   static const Color greyText = Color(0xFF585865);
   static const Color darkBlue = Color(0xff27207C);
@@ -76,4 +76,9 @@ class AppColors {
   static const Color typeAheadLabelColor = Color(0xFFB1B1B1);
   // Notes and Terms Border Color
   static const Color notesTermsBorderColor = Color(0xFFCBCBCB);
+
+  //Font Colors
+  static const Color fontLight = Color(0xFFACB5BB);
+  static const Color fontLight2 = Color(0xFFC0C0C0);
+  static const Color fontLight3 = Color(0xFF838383);
 }

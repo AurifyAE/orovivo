@@ -96,6 +96,9 @@ class _AppTextFormState<T> extends State<AppTextForm<T>> {
         decoration: _decoration.copyWith(
           hintText: widget.hintText,
           labelText: widget.secondaryLabel,
+          labelStyle: AppText.mediumN.copyWith(
+            color: AppColors.fontLight,
+          ),
           suffixIcon: widget.enableObscureText
               ? IconButton(
                   onPressed: () {

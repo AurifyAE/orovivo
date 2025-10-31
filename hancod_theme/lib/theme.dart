@@ -42,7 +42,7 @@ class AppTheme {
         borderSide: const BorderSide(color: AppColors.textfieldOutline),
       ),
       focusedBorder: _inputBorder.copyWith(
-        borderSide: const BorderSide(color: AppColors.outlineGrey),
+        borderSide: const BorderSide(color: AppColors.brandGold),
       ),
       errorBorder: _inputBorder.copyWith(
         borderSide: const BorderSide(color: AppColors.red),

@@ -22,6 +22,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/add.svg
   SvgGenImage get add => const SvgGenImage('assets/icons/add.svg');
 
+  /// File path: assets/icons/avatar.svg
+  SvgGenImage get avatar => const SvgGenImage('assets/icons/avatar.svg');
+
   /// File path: assets/icons/back_arrow.svg
   SvgGenImage get backArrow => const SvgGenImage('assets/icons/back_arrow.svg');
 
@@ -36,6 +39,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/calendar.svg
   SvgGenImage get calendar => const SvgGenImage('assets/icons/calendar.svg');
+
+  /// File path: assets/icons/camera.svg
+  SvgGenImage get camera => const SvgGenImage('assets/icons/camera.svg');
 
   /// File path: assets/icons/card-coin.svg
   SvgGenImage get cardCoin => const SvgGenImage('assets/icons/card-coin.svg');
@@ -88,6 +94,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/icons/filter.svg');
+
+  /// File path: assets/icons/gallery.svg
+  SvgGenImage get gallery => const SvgGenImage('assets/icons/gallery.svg');
 
   /// File path: assets/icons/help_and_support.svg
   SvgGenImage get helpAndSupport =>
@@ -178,11 +187,13 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [
     about,
     add,
+    avatar,
     backArrow,
     bank,
     branch,
     buy,
     calendar,
+    camera,
     cardCoin,
     caution,
     changePassword,
@@ -198,6 +209,7 @@ class $AssetsIconsGen {
     eyesClosed,
     eyesOpened,
     filter,
+    gallery,
     helpAndSupport,
     high,
     home,
@@ -249,6 +261,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/gold.svg
   SvgGenImage get gold => const SvgGenImage('assets/images/gold.svg');
 
+  /// File path: assets/images/reg_suc_bg.png
+  AssetGenImage get regSucBg =>
+      const AssetGenImage('assets/images/reg_suc_bg.png');
+
   /// File path: assets/images/register_bg.png
   AssetGenImage get registerBgPng =>
       const AssetGenImage('assets/images/register_bg.png');
@@ -269,6 +285,7 @@ class $AssetsImagesGen {
     cardBaground,
     chip,
     gold,
+    regSucBg,
     registerBgPng,
     registerBgSvg,
     registrationSuccessBg,
